@@ -21,32 +21,32 @@ public class AdminProductServiceImpl implements AdminProductService{
 	
 	@Override
 	public List<ProductVO> getListWithPaging(Criteria cri) {
-		return null;
+		return mapper.getListWithPaging(cri);
 	}
 
 	@Override
 	public int getTotalCount(Criteria cri) {
-		return 0;
+		return mapper.getTotalCount(cri);
 	}
 
 	@Override
 	public ProductVO getProduct(int product_no) {
-		return null;
+		return mapper.getProduct(product_no);
 	}
 
 	@Override
 	public void register(ProductVO vo) {
-		
+		mapper.register(vo);
 	}
 
 	@Override
 	public boolean modify(ProductVO vo) {
-		return false;
+		return mapper.modify(vo) ==1;
 	}
 
 	@Override
 	public boolean remove(int product_no) {
-		return false;
+		return mapper.remove(product_no) > 0;
 	}
 
 }
