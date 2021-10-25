@@ -20,4 +20,7 @@ public class ProductVO {
 	private String product_type;
 	private Date product_regDate;
 	private int product_saleCount;
+	
+	/* 이미지 파일 수정시 기존 이미지를 이용하기 위한 임시 필드*/
+	private String def_img;
 }

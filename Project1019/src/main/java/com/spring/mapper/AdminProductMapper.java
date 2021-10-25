@@ -19,4 +19,6 @@ public interface AdminProductMapper {
 	
 	public int getTotalCount(Criteria cri);
 	
+	public int saleCount_modify(ProductVO vo);
+	
 }

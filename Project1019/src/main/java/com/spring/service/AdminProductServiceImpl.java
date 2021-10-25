@@ -49,4 +49,9 @@ public class AdminProductServiceImpl implements AdminProductService{
 		return mapper.remove(product_no) > 0;
 	}
 
+	@Override
+	public boolean saleCount_modify(ProductVO vo) {
+		return mapper.saleCount_modify(vo) ==1;
+	}
+
 }
