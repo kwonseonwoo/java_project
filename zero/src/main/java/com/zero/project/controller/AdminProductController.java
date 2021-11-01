@@ -47,21 +47,31 @@ public class AdminProductController {
 	@PostMapping("/product/register")
 	public String register(ProductVO vo) throws IllegalStateException, IOException {
 		
-		MultipartFile uploadFile = vo.getUploadFile();
+		MultipartFile[] uploadFile = new MultipartFile[2];
+		String[] fileName = new String[2];
+		String[] fileName2 = new String[2];
+		String[] extend	= new String[2];
 		
-		if(!uploadFile.isEmpty()) {
-			String fileName = uploadFile.getOriginalFilename();
-			
-			fileName=fileName.substring(0, fileName.lastIndexOf("."));
-			String fileName2 = uploadFile.getOriginalFilename();
-			
-			String extend = fileName2.substring(fileName2.lastIndexOf(".")+1);
-			
-			fileName = fileName + "-" + UUID.randomUUID()+"."+extend;
-			
-			uploadFile.transferTo(new File("c:/upload/"+fileName));
-			vo.setProduct_img(fileName);
+		uploadFile = vo.getUploadFile();
+		
+		for(int i=0; i<2; i++) {
+			if(!uploadFile[i].isEmpty()) {
+				fileName[i] = uploadFile[i].getOriginalFilename();
+				fileName[i] = fileName[i].substring(0, fileName[i].lastIndexOf("."));
+				fileName2[i] = uploadFile[i].getOriginalFilename();
+				
+				extend[i] = fileName2[i].substring(fileName2[i].lastIndexOf(".")+1);
+				
+				fileName[i] = fileName[i] + "-" + UUID.randomUUID()+"."+extend[i];
+				
+				uploadFile[i].transferTo(new File("c:/upload/"+fileName[i]));
+				
+			}
 		}
+		
+		vo.setProduct_img1(fileName[0]);
+		vo.setProduct_img2(fileName[1]);
+
 		
 		service.register(vo);
 		
@@ -79,24 +89,37 @@ public class AdminProductController {
 	@RequestMapping("/product/modify")
 	public String modify(ProductVO vo) throws IllegalStateException, IOException {
 		
-		MultipartFile uploadFile = vo.getUploadFile();
+		MultipartFile[] uploadFile = new MultipartFile[2];
+		String[] fileName = new String[2];
+		String[] fileName2 = new String[2];
+		String[] extend	= new String[2];
 		
-		if(!uploadFile.isEmpty()) {
-			String fileName = uploadFile.getOriginalFilename();
-			
-			fileName=fileName.substring(0, fileName.lastIndexOf("."));
-			String fileName2 = uploadFile.getOriginalFilename();
-			
-			String extend = fileName2.substring(fileName2.lastIndexOf(".")+1);
-			
-			fileName = fileName + "-" + UUID.randomUUID()+"."+extend;
-			
-			uploadFile.transferTo(new File("c:/upload/"+fileName));
-			vo.setProduct_img(fileName);
+		uploadFile = vo.getUploadFile();
 		
-		} else {
-			vo.setProduct_img(vo.getDef_img());
+		for(int i=0; i<2; i++) {
+			if(!uploadFile[i].isEmpty()) {
+				fileName[i] = uploadFile[i].getOriginalFilename();
+				fileName[i] = fileName[i].substring(0, fileName[i].lastIndexOf("."));
+				fileName2[i] = uploadFile[i].getOriginalFilename();
+				
+				extend[i] = fileName2[i].substring(fileName2[i].lastIndexOf(".")+1);
+				
+				fileName[i] = fileName[i] + "-" + UUID.randomUUID()+"."+extend[i];
+				
+				uploadFile[i].transferTo(new File("c:/upload/"+fileName[i]));
+				
+				
+			} 
 		}
+		
+		if(fileName[0] != null) {
+			vo.setProduct_img1(fileName[0]);
+		}
+		
+		if(fileName[1] != null) {
+			vo.setProduct_img2(fileName[1]);
+		}
+
 		
 		service.modify(vo);
 		

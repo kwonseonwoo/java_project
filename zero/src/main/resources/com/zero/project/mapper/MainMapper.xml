@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.zero.project.mapper.MainMapper">
+
+  <select id="recommend" resultType="com.zero.project.model.ProductVO">
+  	select top 8 * from product order by product_price desc
+  </select>
+  
+<!--   <select id="today" resultType="com.zero.project.model.ProductVO">
+  	
+  </select>
+  
+  <select id="week" resultType="com.zero.project.model.ProductVO">
+  	
+  </select>
+  
+  <select id="month" resultType="com.zero.project.model.ProductVO">
+  	
+  </select> -->
+  
+  <select id="news" resultType="com.zero.project.model.ProductVO">
+  	select top 8 * from product order by product_regDate desc
+  </select>
+  
+  <select id="simple" resultType="com.zero.project.model.ProductVO">
+  	select top 8 * from product where product_type='간편요리' order by product_regDate desc
+  </select>
+  
+  <select id="special" resultType="com.zero.project.model.ProductVO">
+  	select top 8 * from product where product_type='특별한 반찬' order by product_regDate desc
+  </select>
+  
+  <select id="beverage" resultType="com.zero.project.model.ProductVO">
+  	select top 8 * from product where product_type='주류/음료' order by product_regDate desc
+  </select>
+  
+  <select id="desert" resultType="com.zero.project.model.ProductVO">
+  	select top 8 * from product where product_type='간식/간편식' order by product_regDate desc
+  </select>
+  
+  
+  <select id="getList" resultType="com.zero.project.model.ProductVO">
+  	select
+  		product_no, product_name, product_price, product_type, product_img, product_regDate, product_saleCount
+  	from
+		product
+    where product_type = #{product_type}  
+  </select>
+
+  <select id="getList_pop" resultType="com.zero.project.model.ProductVO">
+  	select * from product order by product_saleCount desc
+  </select>
+
+  <select id="getList_new" resultType="com.zero.project.model.ProductVO">
+  	select * from product order by product_regDate desc
+  </select>
+
+  <select id="getList_pres" resultType="com.zero.project.model.ProductVO">
+  	select * from product
+  </select>
+  
+</mapper>

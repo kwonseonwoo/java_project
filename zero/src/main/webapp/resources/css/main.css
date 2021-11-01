@@ -1,0 +1,630 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic:wght@400;700&family=Nanum+Myeongjo:wght@400;700&family=Noto+Sans+KR:wght@100;400;500;700&display=swap');
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+	-webkit-touch-callout: none; 
+	user-select: none; 
+	-moz-user-select: none; 
+	-ms-user-select: none; 
+	-webkit-user-select: none;
+
+}
+h1,h2,h3,h4,h5,p {
+    rotate: (0.03deg);
+}
+
+body {
+	line-height: 1;
+ 	padding: 0;
+  	margin: 0;
+    background-color: darkgray;
+}
+
+button{
+    cursor: pointer;
+    background-color: none;
+    border: none;
+}
+
+div, button, span, input, textarea, a, nav, article, section, form, table, tr, td, th{
+    box-sizing: border-box;
+}
+
+span{
+    display: inline;
+}
+
+.test{
+    border: 1px solid red;
+}
+
+
+.bg-c{
+    background-color: rgb(20, 20, 20);
+}
+
+.font-my{
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.main-color{color:rgb(235, 217, 193);}
+
+a{
+    text-decoration-line: none;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+
+a:hover{
+    color: rgb(235, 217, 193);
+}
+
+/* 메인 캐러셀 */
+
+.main-carousel{
+    padding: 0;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-carousel-div{
+    width: 9600PX;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    transition: 0.3s all;
+}
+
+.main-carousel-content{
+    width: 100%;
+    max-width: 1920px;
+    height: 420px;
+    position: relative;
+}
+
+.main-carousel-content img{
+    width: 100%;
+    object-fit: cover;
+    transform: translate(-10%,-15%);
+    z-index: 0;
+}
+
+.carousel-button{
+    position: absolute;
+    background-color:transparent;
+    color: #eee;
+    font-size: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.3;
+    z-index: 7;
+}
+
+.carousel-button:hover{
+    opacity: 0.6;
+}
+
+.bt-left{
+    left: 50px;
+}
+
+.bt-right{
+    right: 50px;
+}
+
+.main-carousel-text{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    z-index: 1;
+}
+
+.main-carousel-text h2{
+    font-weight: 700;
+    margin: 5px 0;
+    font-size: 35px;
+}
+
+.main-carousel-text p{
+    margin: 5px 0;
+    font-weight: lighter;
+}
+
+/* 메인 캐러셀 끝 */
+
+/* --------------------------------------- */
+
+
+.c-bt-left{
+    float: left;
+    left: -100px;
+}
+
+.c-bt-right{
+    right: -100px;
+}
+
+/* 메뉴 추천 캐러셀 */
+.carousel-title{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(85, 85, 85);
+}
+
+.carousel-title h2{
+    font-weight: 700;
+}
+
+.rec-carousel-div{
+    width: 100%;
+    position: relative;
+}
+
+.rec-carousel-button{
+    z-index: 7;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #eee;
+    padding: 13px 17px;
+    align-items: center;
+}
+
+.rec-carousel-button:hover{
+    background-color:rgb(165, 137, 100) ;
+}
+
+.rec-carousel-button i{
+    font-size: 20px;
+}
+
+.rec-carousel-div{
+    width: 100%;
+}
+
+.rec-carousel-box{
+    overflow: hidden;
+    width: 100%;
+}
+
+.rec-carousel-ul{
+    width: 2300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 0 0px;
+    transition: 0.3s all;
+    height: 380px;
+    position: relative;
+}
+
+.rec-carousel-content{
+    border: 1px solid red;
+    box-sizing: border-box;
+    height: 360px;
+    position: relative;
+    transition: 0.2s all;
+    margin: 0 15px;
+}
+
+.rec-carousel-content:hover{
+    height: 370px;
+    box-shadow: 2px 2px 2px 2px rgba(192, 192, 192, 0.2);
+}
+
+
+.rcc-content{
+    position: absolute;
+    bottom: 0;
+}
+
+.rcc-content h4, .rcc-content p{
+    margin: 15px 20px;
+}
+
+.rec-carousel-content img{
+    width: 100%;
+}
+
+/* 메뉴 추천 캐러셀 끝 */
+
+/* ------------------------------------------- */
+
+/* 베스트셀러 */
+
+.best-title{
+    position: relative;
+}
+
+.best-tag{
+    position: absolute;
+    right: 0;
+    display: flex;
+}
+
+.best-tag div{
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.best-tag div:hover{
+    opacity: 0.7;
+}
+
+.best-tag span{
+    font-size: 10px;
+    position: relative;
+    top: 23px;
+    left: -35px;
+}
+
+.tag-check{
+    font-weight: 700;
+    opacity: 1;
+    color: rgb(216, 190, 157);
+}
+
+.best-box{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    padding: 0 10px;
+}
+
+.best-content{
+    height: 120px;
+    padding: 15px 0;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 15px;
+    border-bottom: 1px solid rgb(85, 85, 85);
+}
+
+.best-img{
+    width: 100%;
+    overflow: hidden;
+}
+
+.best-img img{
+    width: 160%;
+    object-fit: cover;
+    left: -100px;
+}
+
+.best-text{
+    position: relative;
+}
+
+.best-text h5{
+    text-overflow:ellipsis;
+    margin-bottom: 5px;
+}
+
+.best-price{
+    position: absolute;
+    bottom: 0;
+}
+
+.best-content:hover .best-img, .best-content:hover .best-text{
+    opacity: 0.7;
+    color:rgb(235, 217, 193);
+}
+
+.best-off{
+    display: none;
+}
+/* 베스트셀러 끝 */
+
+/* -------------------------------------- */
+
+/* 로그인 */
+
+.login{
+    padding: 50px 0;
+}
+
+.login-box{
+    width: 23%;
+    min-width: 264.5px;
+    margin: 0 auto;
+    padding: 30px 0;
+    border: 1px solid rgb(78, 78, 78);
+}
+
+.login-title{
+    width: 100%;
+    text-align: center;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgb(53, 52, 52);
+}
+
+.login-main-content{
+    margin: 30px 0;
+}
+
+.login-button{
+    font-size: 20px;
+    height: 60px;
+    align-items: center;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.login-main-content p{
+    margin-bottom: 5px;
+}
+.login-main-content input{
+    height: 40px;
+	padding: 10px 20px;
+    background-color: rgb(20, 20, 20);
+    border: 1px solid rgb(78, 78, 78);
+}
+
+.lmc1{
+    display: flex;
+}
+
+.login-checkbox{
+    align-items: center;
+    position: relative;
+    top: 12px;
+    left: 7px;
+}
+
+.login-sub{
+    border-top:  1px solid rgb(78, 78, 78);
+    padding-top: 30px;
+}
+
+.login-sub-box{
+    padding: 20px 0;
+}
+
+.login-sub-button{
+    font-size: 20px;
+    height: 60px;
+    align-items: center;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin: 5px 0;
+}
+
+.c-bk{
+    color: black;
+    font-weight: 600;
+}
+
+.login-sub-contents{
+    margin: 10px 0;
+    text-align: center;
+    font-weight: 200;
+}
+
+.login-sub-contents div{
+    margin: 20px 0;
+}
+
+.login-sub-contents div p{
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.login-sub-contents div p a{
+    text-decoration: underline;
+}
+/* 로그인 끝 */
+
+/* -------------------------------------------------- */
+
+/* admin */
+
+.admin-title{
+    padding: 20px 30px;
+    margin: 0 auto;
+}
+
+.admin-box{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    margin: 0 auto;
+}
+
+.admin-tab{
+    background-color: rgb(45, 45, 45);
+    padding: 5px 0;
+    position: relative;
+}
+
+.admin-tab div{
+    color: rgb(235, 217, 193);
+    cursor: pointer;
+}
+
+.admin-tab div:active{
+    background-color: rgb(172, 144, 107);
+    color: white;
+}
+
+.ad-untab{
+    color: white;
+    width: 70%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-53%);
+    transition: all 0.2s;
+    opacity: 0.5;
+}
+
+.ad-untab:hover{
+    opacity: 1;
+    width: 95%;
+}
+
+.admin-tab div{
+    height: 50px;
+    margin: 5px 10px 10px 0 ;
+    line-height: 50px;
+    text-align: center;
+}
+
+.adminList-box{
+    margin-top: 10px;
+}
+
+.adminList-box{
+    padding: 20px;
+    min-height: 500px;
+    position: relative;
+}
+
+.adminList-table-title{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 3fr 2fr 2fr;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.adminList-table-content{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 3fr 2fr 2fr;
+    margin: 5px 0;
+    align-items: center;
+    border-bottom: 2px solid rgb(45, 45, 45);
+    
+}
+
+.adminList-button button{
+    padding: 5px 10px;
+    margin: 0 5px;
+}
+
+.ad-off{
+    display: none;
+}
+
+.adminList-search{
+	margin: 0 0 20px 0;
+}
+
+.adminList-search select, .adminList-search input{
+	padding: 5px 10px;
+}
+
+.adminList-search select{
+	background-color: rgb(20,20,20);
+	color:white;
+}
+
+.adminList-search-button{
+	padding: 8.5px 10px;
+}
+
+.adminList-search-button:active{
+	background-color: rgb(35,35,35);
+}
+
+
+/* adminView */
+.adminView-title{
+    border-bottom: 1px solid rgb(124, 121, 121);
+    padding: 5px 0 15px 0;
+}
+
+.adminView-member-content{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    padding: 15px 0;
+    grid-column-gap: 10px;
+}
+
+.adminView-member-left{
+
+}
+
+.adminView-member-left div{
+    padding: 28px 15px;
+    text-align: right;
+    align-items: center;
+    border-bottom: 1px solid rgb(25, 25, 25);
+}
+
+.adminView-member-right{
+    background-color: rgb(45, 45, 45);
+}
+
+.adminView-member-right div{
+    background-color: rgb(45, 45, 45);
+    padding: 20px 15px;
+    text-align: left;
+    align-items: center;
+    border-bottom: 1px solid rgb(25, 25, 25);
+}
+
+.adminView-member-right div input{
+	width: 100%;
+	padding: 5px 10px;
+}
+
+.adminView-button{
+	display: flex;
+	justify-content: flex-end;
+}
+
+.adminView-button div{
+	margin: 10px;
+}
+
+.adminView-button div input{
+	width: 100px;
+	padding: 10px;
+}
+
+.adminList-table-content2{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr 1fr 2fr 1fr 2fr;
+    margin: 10px 0;
+    align-items: center;
+    border-bottom: 2px solid rgb(45, 45, 45);
+    
+}
+
+.adminList-table-title2{
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr 1fr 2fr 1fr 2fr;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+
+
+
+/* admin 끝 */

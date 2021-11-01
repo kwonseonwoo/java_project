@@ -1,0 +1,262 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	-webkit-touch-callout: none; 
+	user-select: none; 
+	-moz-user-select: none; 
+	-ms-user-select: none; 
+	-webkit-user-select: none;
+
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+ 	padding: 0;
+  	margin: 0;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a{
+    text-decoration-line: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+div, button, span, input, textarea, a, nav, article, section, form, table, tr, td, th{
+  box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,p {
+  rotate: (0.03deg);
+}
+
+button{
+	cursor: pointer;
+	background-color: #eee;
+	border: none;
+}
+
+div{
+	padding:0;
+	margin:0;
+	background-color:rgb(25, 25, 25);
+}
+
+input:focus{
+    outline: none;
+}
+body::-webkit-scrollbar{
+	width: 5px;
+	background-color:rgb(25, 25, 25);
+}
+
+.wrap{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nanum Gothic', sans-serif;
+	/* font-family: 'Noto Sans KR', sans-serif; */
+    color: white;
+}
+
+.bg-c{
+    background-color: rgb(25, 25, 25);
+}
+
+.bg-dg{
+    background-color: rgb(45, 45, 45);
+}
+
+.font-my{
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.font-noto{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.main-color{color:rgb(235, 217, 193);}
+.main-color2{color:rgb(216, 190, 157);}
+.bg-main{background-color:rgb(235, 217, 193);}
+.bg-main2{background-color:rgb(216, 190, 157);}
+body::-webkit-scrollbar-thumb {
+	background-color: rgb(85, 85, 85); /*스크롤바의 색상*/
+	background-clip: padding-box;
+	border-radius: 50px;
+}
+
+.bg-none{
+	background-color: transparent;
+}
+
+.bg-gray{
+	background-color: darkgray;
+}
+
+.size15{
+	width: 100%;
+	max-width: 1150px;
+	margin: 50px auto;
+}
+
+.size-all{
+	width: 100%;
+	margin: 0 auto;
+}
+
+.mtb50{
+	margin:50px 0;
+}
+
+.ml-10{
+	margin-left: 10px;
+}
+
+.off{
+	display: none;
+}
+
+.mr-s10{
+	margin: 0 10px;
+}
+
+.mr-10{
+	margin: 10px;
+}
+
+.mtb-10{
+	margin:10px 0;
+}
+
+.mtb-15{
+	margin:10px 0;
+}
+
+.mr-20{
+	margin: 20px;
+}
+
+.mr-s20{
+	margin: 0 20px;
+}
+
+.mt50{
+	margin-top: 50px;
+}
+
+.max-button{
+	width: 100%;
+}
+
+.max-input{
+	width: 100%;
+
+}
+
+input{
+	caret-color:rgb(216, 190, 157);
+	background-color: rgb(20, 20, 20);
+	color: rgb(216, 190, 157);
+}
+
+.main-color3{
+	color: rgb(172, 144, 107);
+}
+
+.bg-main3:active{
+	background-color: rgb(128, 99, 61);;
+}
+
+.bg-main3{
+	background-color: rgb(172, 144, 107);
+}
+
+.bg-blue{
+	background-color: #3b5998;
+}
+
+.bg-green{
+	background-color: #2db400;
+}
+
+.bg-yellow{
+	background-color: #f7e600;
+}
+
+.c-bk{
+	color: black;
+}
+
+.pd-20{
+	padding: 20px 0;	
+}
+
+.pd-10{
+	padding:10px 0;
+}
+.pd-5{
+	padding:5px 0;
+}
+
+.pt-20{
+padding-top: 20px;
+}
+
+.text-c{
+	text-align: center;
+}
+
+.text-l{
+	text-align: left;
+}
+
+.text-r{
+	text-align: right;
+}
+
+.red-button{
+	background-color: red;
+	color: white;
+	font-weight: 600;
+	border-radius: 4px;
+}
+
+.white-button{
+	background-color: white;
+	font-weight: 600;
+	border-radius: 4px;
+}

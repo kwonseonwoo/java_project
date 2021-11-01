@@ -33,7 +33,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	update product
 	set product_name = #{product_name},
 		product_price = #{product_price},
-		product_img = #{product_img},
+		product_img1 = #{product_img1},
+		product_img2 = #{product_img2},
 		product_type = #{product_type}
 		where product_no = #{product_no}	
   </update>
@@ -45,11 +46,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   <select id="getListWithPaging" resultType="com.zero.project.model.ProductVO">
   <![CDATA[
   	select
-  		product_no, product_name, product_price, product_type, product_img, product_regDate, product_saleCount
+  		product_no, product_name, product_price, product_type, product_img1, product_img2, product_regDate, product_saleCount
   	from
   		(
        select /*+INDEX_DESC(product pk_product) */
-         rownum rn, product_no, product_name, product_price, product_type, product_img, product_regDate, product_saleCount
+         rownum rn, product_no, product_name, product_price, product_type, product_img1, product_img2, product_regDate, product_saleCount
        from 
          product
       where 
@@ -66,9 +67,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	<selectKey keyProperty="product_no" order="BEFORE" resultType="int">
   		select product_seq.nextval from dual
   	</selectKey>
-  	insert into product(product_no, product_name, product_price, product_img, product_type,
+  	insert into product(product_no, product_name, product_price, product_img1, product_img2, product_type,
   						product_regDate, product_saleCount)
-  	values(#{product_no}, #{product_name}, #{product_price}, #{product_img}, #{product_type},
+  	values(#{product_no}, #{product_name}, #{product_price}, #{product_img1}, #{product_img2}, #{product_type},
   		   DEFAULT, #{product_saleCount})
   </insert>
   
