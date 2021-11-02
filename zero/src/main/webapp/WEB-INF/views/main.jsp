@@ -349,7 +349,7 @@
 
 		<section class="rec-carousel size15">
 			<div class="carousel-title">
-				<h2>한국 전통주</h1>
+				<h2>주류/음료</h1>
 				<p class="ml-10">우리나라 최고의 전통주들을 만나보세요</p>
 			</div>
 			<div class="rec-carousel-div">
@@ -369,66 +369,6 @@
 											</div>
 										</div>`;
 									$('#rec-6').append(rec_template);
-								})
-							})
-						</script>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="rec-carousel size15">
-			<div class="carousel-title">
-				<h2>고기</h1>
-				<p class="ml-10">행복한 BBQ타임을 위한 좋은 고기</p>
-			</div>
-			<div class="rec-carousel-div">
-				<button class="rec-carousel-button c-bt-left bg-main2" id="btn7-l"><i class="fas fa-chevron-left"></i></button>
-				<button class="rec-carousel-button c-bt-right bg-main2" id="btn7-r"><i class="fas fa-chevron-right"></i></button>
-				<div class="rec-carousel-box">
-					<div class="rec-carousel-ul" id="rec-7">
-						<script>
-							//db리스트 받아올때는 var list = ${list}; 로 받고 list.foreach돌리면 될 듯;
-							$(document).ready(function(){
-								var sampleView = sample.forEach(function(a){
-									var rec_template = `<div class="rec-carousel-content">
-											<div class="rcc-content">
-												<h4>\${a.name}</h4>
-												<p>\${a.num}</p>
-												<p>\${a.price}원</p>
-											</div>
-										</div>`;
-									$('#rec-7').append(rec_template);
-								})
-							})
-						</script>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="rec-carousel size15">
-			<div class="carousel-title">
-				<h2>베이커리/유제품</h1>
-				<p class="ml-10">전국 유명 베이커리가 한 곳에</p>
-			</div>
-			<div class="rec-carousel-div">
-				<button class="rec-carousel-button c-bt-left bg-main2" id="btn8-l"><i class="fas fa-chevron-left"></i></button>
-				<button class="rec-carousel-button c-bt-right bg-main2" id="btn8-r"><i class="fas fa-chevron-right"></i></button>
-				<div class="rec-carousel-box">
-					<div class="rec-carousel-ul" id="rec-8">
-						<script>
-							//db리스트 받아올때는 var list = ${list}; 로 받고 list.foreach돌리면 될 듯;
-							$(document).ready(function(){
-								var sampleView = sample.forEach(function(a){
-									var rec_template = `<div class="rec-carousel-content">
-											<div class="rcc-content">
-												<h4>\${a.name}</h4>
-												<p>\${a.num}</p>
-												<p>\${a.price}원</p>
-											</div>
-										</div>`;
-									$('#rec-8').append(rec_template);
 								})
 							})
 						</script>
@@ -497,6 +437,36 @@
 		crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+	<script>
+		var main = (function(){
+			
+			function recommend(callback, error) {
+				$.getJSON("/list/recommend.json",
+					function(data) {
+					if(callback) {
+						callback(data);
+					}
+				}		
+				).fail(function(xhr, status, err) {
+					if(error) {
+						error(err);
+					}
+				});
+			}
+			
+			return {recommend:recommend}
+		})();
+	</script>
+	
+	<script>
+		$(document).ready(function(){
+			main.recommend(function(list){
+				console.log("list: ", list);
+			});
+		});
+	</script>
+
 <%@ include file="./headerFooter/footer.jsp"%>
 </body>
 

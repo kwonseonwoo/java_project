@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.zero.project.mapper.MainMapper">
 
   <select id="recommend" resultType="com.zero.project.model.ProductVO">
-  	select top 8 * from product order by product_price desc
+  	select * from (select * from product order by product_price desc) where <![CDATA[ rownum < 9 ]]> 
   </select>
   
 <!--   <select id="today" resultType="com.zero.project.model.ProductVO">

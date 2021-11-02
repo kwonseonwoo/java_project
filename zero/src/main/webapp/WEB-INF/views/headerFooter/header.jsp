@@ -135,6 +135,10 @@
 		    letter-spacing: 3px;
 		}
 		
+		.logo h4{
+			cursor: pointer;
+		}
+		
 		.logo h4 i{
 		    font-size: 35px;
 		    position: relative;
@@ -483,9 +487,15 @@
 					</script>
 
 					<div class="logo">
-						<a><h4><i class="fab fa-stumbleupon-circle logo-color"></i> 제로식당</h4>
-						</a>
+						<h4 class="logo-h4"><i class="fab fa-stumbleupon-circle logo-color"></i> 제로식당</h4>
 					</div>
+					<script>
+						$(document).ready(function(){
+							$('.logo h4').on('click', function(){
+								location.href='/main';
+							})
+						})
+					</script>
 					<div>
 						<ul class="nav-top-ul">
 							<li><a href="#n">고객센터</a></li>

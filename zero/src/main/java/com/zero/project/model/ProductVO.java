@@ -24,9 +24,5 @@ public class ProductVO {
 	/* 상품 상세내용 출력을 위한 속성 */
 	private String product_img2;
 	
-	/* 이미지 파일 수정시 기존 이미지를 이용하기 위한 임시 필드*/
-	private String def_img1;
-	private String def_img2;
-	
 	
 }
