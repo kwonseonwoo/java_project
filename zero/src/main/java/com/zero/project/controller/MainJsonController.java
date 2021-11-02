@@ -43,4 +43,119 @@ public class MainJsonController {
 		
 		return json;
 	}
+
+	/* 새로 나온 메뉴 */
+	@SuppressWarnings("deprecation")
+	@GetMapping(value="/news",
+	produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,
+			MediaType.APPLICATION_XML_VALUE
+	})
+	public String news() {
+		
+		/* System.out.println("success"); */
+		
+		List<ProductVO> list = service.news();
+		
+		Gson gson = new Gson();
+		
+		String json = gson.toJson(list);
+		
+		/* System.out.println("success2"); */
+		
+		System.out.println(json);
+		
+		return json;
+	}
+
+	/* 간편 요리 */
+	@SuppressWarnings("deprecation")
+	@GetMapping(value="/simple",
+	produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,
+			MediaType.APPLICATION_XML_VALUE
+	})
+	public String simple() {
+		
+		/* System.out.println("success"); */
+		
+		List<ProductVO> list = service.simple();
+		
+		Gson gson = new Gson();
+		
+		String json = gson.toJson(list);
+		
+		/* System.out.println("success2"); */
+		
+		System.out.println(json);
+		
+		return json;
+	}
+
+	/* 특별한 반찬 */
+	@SuppressWarnings("deprecation")
+	@GetMapping(value="/special",
+	produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,
+			MediaType.APPLICATION_XML_VALUE
+	})
+	public String special() {
+		
+		/* System.out.println("success"); */
+		
+		List<ProductVO> list = service.special();
+		
+		Gson gson = new Gson();
+		
+		String json = gson.toJson(list);
+		
+		/* System.out.println("success2"); */
+		
+		System.out.println(json);
+		
+		return json;
+	}
+	
+	/* 주류, 음료 */
+	@SuppressWarnings("deprecation")
+	@GetMapping(value="/beverage",
+	produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,
+			MediaType.APPLICATION_XML_VALUE
+	})
+	public String beverage() {
+		
+		/* System.out.println("success"); */
+		
+		List<ProductVO> list = service.beverage();
+		
+		Gson gson = new Gson();
+		
+		String json = gson.toJson(list);
+		
+		/* System.out.println("success2"); */
+		
+		System.out.println(json);
+		
+		return json;
+	}
+
+	/* 간식과 간편식 */
+	@SuppressWarnings("deprecation")
+	@GetMapping(value="/desert",
+	produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,
+			MediaType.APPLICATION_XML_VALUE
+	})
+	public String desert() {
+		
+		/* System.out.println("success"); */
+		
+		List<ProductVO> list = service.desert();
+		
+		Gson gson = new Gson();
+		
+		String json = gson.toJson(list);
+		
+		/* System.out.println("success2"); */
+		
+		System.out.println(json);
+		
+		return json;
+	}
 }

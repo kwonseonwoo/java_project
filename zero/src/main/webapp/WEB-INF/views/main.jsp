@@ -439,33 +439,26 @@
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 	<script>
-		var main = (function(){
-			
-			function recommend(callback, error) {
-				$.getJSON("/list/recommend.json",
-					function(data) {
-					if(callback) {
-						callback(data);
-					}
-				}		
-				).fail(function(xhr, status, err) {
-					if(error) {
-						error(err);
-					}
-				});
-			}
-			
-			return {recommend:recommend}
-		})();
+	$(document).ready(function(){
+	      $.ajax({
+	         type:"GET",
+	         url : "/list/recommend",
+	      }).done(function(data){
+	         console.log("recommend:", data);
+	         var jsonData = [];
+	      });
+
+	      $.ajax({
+	         type:"GET",
+	         url : "/list/news",
+	      }).done(function(data){
+	         console.log("news:", data);
+	         var jsonData = [];
+	      });
+	   });
 	</script>
 	
-	<script>
-		$(document).ready(function(){
-			main.recommend(function(list){
-				console.log("list: ", list);
-			});
-		});
-	</script>
+
 
 <%@ include file="./headerFooter/footer.jsp"%>
 </body>

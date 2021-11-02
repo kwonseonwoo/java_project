@@ -21,29 +21,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   </select> -->
   
   <select id="news" resultType="com.zero.project.model.ProductVO">
-  	select top 8 * from product order by product_regDate desc
+  	select * from (select * from product order by product_regDate) where <![CDATA[ rownum < 9 ]]>
   </select>
   
   <select id="simple" resultType="com.zero.project.model.ProductVO">
-  	select top 8 * from product where product_type='간편요리' order by product_regDate desc
+  	select * from (select * from product where product_type='간편요리' order by product_regDate desc) where <![CDATA[ rownum < 9 ]]>
   </select>
   
   <select id="special" resultType="com.zero.project.model.ProductVO">
-  	select top 8 * from product where product_type='특별한 반찬' order by product_regDate desc
+  	select * from (select * from product where product_type='특별한 반찬' order by product_regDate desc) where <![CDATA[ rownum < 9 ]]>
   </select>
   
   <select id="beverage" resultType="com.zero.project.model.ProductVO">
-  	select top 8 * from product where product_type='주류/음료' order by product_regDate desc
+  	select * from (select * from product where product_type='주류/음료' order by product_regDate desc) where <![CDATA[ rownum < 9 ]]>
   </select>
   
   <select id="desert" resultType="com.zero.project.model.ProductVO">
-  	select top 8 * from product where product_type='간식/간편식' order by product_regDate desc
+  	select * from (select * from product where product_type='간식/간편식' order by product_regDate desc) where <![CDATA[ rownum < 9 ]]>
   </select>
   
   
   <select id="getList" resultType="com.zero.project.model.ProductVO">
   	select
-  		product_no, product_name, product_price, product_type, product_img, product_regDate, product_saleCount
+  		*
   	from
 		product
     where product_type = #{product_type}  
