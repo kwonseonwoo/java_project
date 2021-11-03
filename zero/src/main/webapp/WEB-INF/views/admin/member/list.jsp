@@ -98,7 +98,7 @@
                        		<c:forEach items="${list }" var="member">
 	                            <div><p class="text-c"><c:out value="${member.member_no }"></c:out></p></div>
 	                            <div><p class="text-c"><c:out value="${member.member_id }"></c:out></p></div>
-	                            <div><p class="text-c"><c:out value="${member.member_name }"></c:out></p></div>
+	                            <div><p class="text-c"><c:out value="${member.member_username }"></c:out></p></div>
 	                            <div><p class="text-c"><c:out value="${member.member_address }"></c:out></p></div>
 	                            <div><p class="text-c"><fmt:formatDate value="${member.member_regDate }" pattern="yyyy-MM-dd" /></p></div>
 	                            <div class="text-c adminList-button" >

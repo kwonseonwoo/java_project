@@ -27,17 +27,19 @@
 			<div class="main-carousel-div">
 				<script>
 					var main_ca_num = 0;
-					var sampleObj = [{num:0,name:'kim'},{num:1,name:'kim park'},{num:2,name:'park kim'},{num:3,name:'choi kim'},{num:4,name:'kim choi'}];
-					
+					var sampleObj = [{num:0,cont:'보충소 앞 그 닭갈비를 집에서',name:'국방의 맛 국군의 맛, <br>춘천 닭갈비', img:'춘천닭갈비메인.jpg'},
+						{num:1, cont:'그 때 그 짜글이를 집에서',name:'추운 겨울의 소박한 한상, <br>김치 짜글이', img:'김치짜글이메인.jpg'},
+						{num:2, cont:'맛나 떡볶이 최대 20% 할인',name:'친근한 떡볶이의 고급화, <br>사골육수 떡볶이', img:'사골육수떡볶이메인.jpg'},
+						{num:3, cont:'대감집 전 품목 프로모션 진행 중',name:'대감집 한우 된장찌개', img:'한우된장찌개메인.jpg'},
+						{num:4, cont:'운수좋은 날, 설렁탕을 집에서',name:'대감집 소머리 설렁탕', img:'소머리설렁탕메인.jpg'}];
 					$(document).ready(function (){
 						
 						var mainView = sampleObj.forEach(function(a,i){
-							var imgs = `resources/img/appletv\${i}.jpg`;
 							var mainTemplate = `<div class="main-carousel-content" id="main-carousel-\${a.num}">
-									<img src="\${imgs}" align="center" width="100%;" />
+									<img src="/resources/img/\${a.img}" align="center" width="100%;" />
 									<div class="main-carousel-text bg-none">
-										<h2>\${a.num}</h2>
-										<p>\${a.name}</p>
+										<h2>\${a.name}</h2>
+										<p>\${a.cont}</p>
 									</div>
 								</div>`;
 							$('.main-carousel-div').append(mainTemplate);
@@ -82,18 +84,14 @@
 							main_ca_num;
 						};
 					};
-					
-					
 				</script>
-
-
 			</div>
 		</section>
-
+		
 		<!-- 메뉴 추천 -->
 		<section class="rec-carousel size15">
 			<div class="carousel-title">
-				<h2>이 메뉴는 어떠세요?</h1>
+				<h2>이 메뉴는 어떠세요?</h2>
 					<p class="ml-10">회원님이 좋아하실 메뉴입니다</p>
 			</div>
 			<div class="rec-carousel-div">
@@ -102,24 +100,35 @@
 				<div class="rec-carousel-box">
 					<div class="rec-carousel-ul" id="rec-1">
 						<script>
-							var sample = [{num:0,name:'원할머니 보쌈', price:12000},{num:1,name:'BHC쌈', price:12000},{num:2,name:'김할머니 보쌈', price:12000},
-							{num:3,name:'김빡빡이 보쌈', price:12000},{num:4,name:'호호아줌마 보쌈', price:12000},{num:5,name:'원수의불 보쌈', price:12000},
-							{num:6,name:'무량수불 보쌈', price:12000},{num:7,name:'금강불괴 보쌈', price:12000},];
-							
+						
 							$(document).ready(function(){
-								var sampleView = sample.forEach(function(a){
-									var rec_template = `<div class="rec-carousel-content">
-											<div class="rcc-content">
-												<h4>\${a.name}</h4>
-												<p>\${a.num}</p>
-												<p>\${a.price}원</p>
-											</div>
+								$.ajax({
+									type:"GET",
+									url : "/list/recommend",
+								}).done(function(data){
+									var recData = [];
+									recData = data;
+									recData = recData.sort(()=>Math.random()-0.5).slice(0,8);
+									console.log(recData);
+									var sampleView = recData.forEach(function(a){
+										var rec_template = `<div class="rec-carousel-content-box">
+											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');">
+												<div class="rcc-content font-noto">
+													<h4>\${a.product_name}</h4>
+													<p>\${a.product_price}</p>
+													<p>0개의 리뷰</p>
+												</div>
 										</div>
-									`;
-									$('#rec-1').append(rec_template);
-								})
-							})
+									</div>`;
+										$('#rec-1').append(rec_template);
+									})
+								});
+								
+							});
 							
+							function shuffle(array){
+								array.sort(()=>Math.random()-0.5);
+							};
 						</script>
 					</div>
 				</div>
@@ -128,7 +137,7 @@
 
 		<section class="best size15">
 			<div class="best-title carousel-title">
-				<h2>오늘의 베스트셀러</h1>
+				<h2>오늘의 베스트셀러</h2>
 				<p class="ml-10">지금 가장 많이 구매되고 있는 메뉴입니다</p>
 				<div class="best-tag">
 					<div class="tag-check">오늘의 Top</div>
@@ -221,13 +230,11 @@
 					})
 				});
 			</script>
-			
-			
 		</section>
 
 		<section class="rec-carousel size15">
 			<div class="carousel-title">
-				<h2>새로 나온 메뉴</h1>
+				<h2>새로 나온 메뉴</h2>
 				<p class="ml-10">새로 나온 메뉴를 둘러보고 먼저 경험하세요</p>
 			</div>
 			<div class="rec-carousel-div">
@@ -236,22 +243,31 @@
 				<div class="rec-carousel-box">
 					<div class="rec-carousel-ul" id="rec-2">
 						<script>
-							var sample = [{num:0,name:'원할머니 보쌈', price:12000},{num:1,name:'BHC쌈', price:12000},{num:2,name:'김할머니 보쌈', price:12000},
-							{num:3,name:'김빡빡이 보쌈', price:12000},{num:4,name:'호호아줌마 보쌈', price:12000},{num:5,name:'원수의불 보쌈', price:12000},
-							{num:6,name:'무량수불 보쌈', price:12000},{num:7,name:'금강불괴 보쌈', price:12000},];
-							
 							$(document).ready(function(){
-								var sampleView = sample.forEach(function(a){
-									var rec_template = `<div class="rec-carousel-content">
-											<div class="rcc-content">
-												<h4>\${a.name}</h4>
-												<p>\${a.num}</p>
-												<p>\${a.price}원</p>
-											</div>
-										</div>`;
-									$('#rec-2').append(rec_template);
-								})
-							})
+								$.ajax({
+									type:"GET",
+									url : "/list/news",
+								}).done(function(data){
+									var recData = [];
+									/* console.log("신상품: ", data); */
+									recData = data;
+									recData = recData.slice(0,8);
+									 console.log("신상품: ", recData);
+									var sampleView = recData.forEach(function(a){
+										var rec_template = `<div class="rec-carousel-content-box">
+											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');">
+												<div class="rcc-content font-noto">
+													<h4>\${a.product_name}</h4>
+													<p>\${a.product_price}</p>
+													<p>0개의 리뷰</p>
+												</div>
+										</div>
+									</div>`;
+										$('#rec-2').append(rec_template);
+									})
+								});
+								
+							});
 						</script>
 					</div>
 				</div>
@@ -260,7 +276,7 @@
 
 		<section class="rec-carousel size15">
 			<div class="carousel-title">
-				<h2>간편 요리</h1>
+				<h2>간편 요리</h2>
 				<p class="ml-10">전국 맛집 메뉴를 간단히 요리해보세요</p>
 			</div>
 			<div class="rec-carousel-div">
@@ -269,19 +285,33 @@
 				<div class="rec-carousel-box">
 					<div class="rec-carousel-ul" id="rec-3">
 						<script>
-							//db리스트 받아올때는 var list = ${list}; 로 받고 list.foreach돌리면 될 듯;
 							$(document).ready(function(){
-								var sampleView = sample.forEach(function(a){
-									var rec_template = `<div class="rec-carousel-content">
-											<div class="rcc-content">
-												<h4>\${a.name}</h4>
-												<p>\${a.num}</p>
-												<p>\${a.price}원</p>
-											</div>
-										</div>`;
-									$('#rec-3').append(rec_template);
-								})
-							})
+								$.ajax({
+									type:"GET",
+									url : "/list/simple",
+								}).done(function(data){
+									var recData = []; 
+									recData = data;
+									recData = recData.filter(a=>{
+										return a.product_type == "간편요리";
+									});
+									recData = recData.slice(0,8);
+									console.log(recData);
+									var sampleView = recData.forEach(function(a){
+										var rec_template = `<div class="rec-carousel-content-box">
+											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');">
+												<div class="rcc-content font-noto">
+													<h4>\${a.product_name}</h4>
+													<p>\${a.product_price}</p>
+													<p>0개의 리뷰</p>
+												</div>
+										</div>
+									</div>`;
+										$('#rec-3').append(rec_template);
+									})
+								});
+								
+							});
 						</script>
 					</div>
 				</div>
@@ -290,7 +320,7 @@
 
 		<section class="rec-carousel size15">
 			<div class="carousel-title">
-				<h2>특별한 반찬</h1>
+				<h2>특별한 반찬</h2>
 				<p class="ml-10">좋은 반찬을 집에서 즐겨보세요</p>
 			</div>
 			<div class="rec-carousel-div">
@@ -299,19 +329,33 @@
 				<div class="rec-carousel-box">
 					<div class="rec-carousel-ul" id="rec-4">
 						<script>
-							//db리스트 받아올때는 var list = ${list}; 로 받고 list.foreach돌리면 될 듯;
 							$(document).ready(function(){
-								var sampleView = sample.forEach(function(a){
-									var rec_template = `<div class="rec-carousel-content">
-											<div class="rcc-content">
-												<h4>\${a.name}</h4>
-												<p>\${a.num}</p>
-												<p>\${a.price}원</p>
-											</div>
-										</div>`;
-									$('#rec-4').append(rec_template);
-								})
-							})
+								$.ajax({
+									type:"GET",
+									url : "/list/special",
+								}).done(function(data){
+									var recData = [];
+									recData = data;
+									recData = recData.filter(a=>{
+										return a.product_type == "특별한 반찬";
+									});
+									recData = recData.slice(0,8);
+									console.log(recData);
+									var sampleView = recData.forEach(function(a){
+										var rec_template = `<div class="rec-carousel-content-box">
+											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');">
+												<div class="rcc-content font-noto">
+													<h4>\${a.product_name}</h4>
+													<p>\${a.product_price}</p>
+													<p>0개의 리뷰</p>
+												</div>
+										</div>
+									</div>`;
+										$('#rec-4').append(rec_template);
+									})
+								});
+								
+							});
 						</script>
 					</div>
 				</div>
@@ -320,7 +364,7 @@
 
 		<section class="rec-carousel size15">
 			<div class="carousel-title">
-				<h2>간식과 간편식</h1>
+				<h2>간식과 간편식</h2>
 			</div>
 			<div class="rec-carousel-div">
 				<button class="rec-carousel-button c-bt-left bg-main2" id="btn5-l"><i class="fas fa-chevron-left"></i></button>
@@ -328,19 +372,32 @@
 				<div class="rec-carousel-box">
 					<div class="rec-carousel-ul" id="rec-5">
 						<script>
-							//db리스트 받아올때는 var list = ${list}; 로 받고 list.foreach돌리면 될 듯;
 							$(document).ready(function(){
-								var sampleView = sample.forEach(function(a){
-									var rec_template = `<div class="rec-carousel-content">
-										<div class="rcc-content">
-												<h4>\${a.name}</h4>
-												<p>\${a.num}</p>
-												<p>\${a.price}원</p>
-											</div>
-										</div>`;
-									$('#rec-5').append(rec_template);
-								})
-							})
+								$.ajax({
+									type:"GET",
+									url : "/list/desert",
+								}).done(function(data){
+									var recData = [];
+									recData = data;
+									recData = recData.filter(a=>{
+										return a.product_type == "간식/간편식";
+									}).slice(0,9);
+									console.log(recData);
+									var sampleView = recData.forEach(function(a){
+										var rec_template = `<div class="rec-carousel-content-box">
+											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');">
+												<div class="rcc-content font-noto">
+													<h4>\${a.product_name}</h4>
+													<p>\${a.product_price}</p>
+													<p>0개의 리뷰</p>
+												</div>
+										</div>
+									</div>`;
+										$('#rec-5').append(rec_template);
+									})
+								});
+								
+							});
 						</script>
 					</div>
 				</div>
@@ -349,7 +406,7 @@
 
 		<section class="rec-carousel size15">
 			<div class="carousel-title">
-				<h2>주류/음료</h1>
+				<h2>주류/음료</h2>
 				<p class="ml-10">우리나라 최고의 전통주들을 만나보세요</p>
 			</div>
 			<div class="rec-carousel-div">
@@ -358,19 +415,32 @@
 				<div class="rec-carousel-box">
 					<div class="rec-carousel-ul" id="rec-6">
 						<script>
-							//db리스트 받아올때는 var list = ${list}; 로 받고 list.foreach돌리면 될 듯;
 							$(document).ready(function(){
-								var sampleView = sample.forEach(function(a){
-									var rec_template = `<div class="rec-carousel-content">
-											<div class="rcc-content">
-												<h4>\${a.name}</h4>
-												<p>\${a.num}</p>
-												<p>\${a.price}원</p>
-											</div>
-										</div>`;
-									$('#rec-6').append(rec_template);
-								})
-							})
+								$.ajax({
+									type:"GET",
+									url : "/list/beverage",
+								}).done(function(data){
+									var recData = [];
+									recData = data;
+									recData = recData.filter(a=>{
+										return a.product_type == "주류/음료";
+									}).slice(0,8);
+									console.log(recData);
+									var sampleView = recData.forEach(function(a){
+										var rec_template = `<div class="rec-carousel-content-box">
+											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');">
+												<div class="rcc-content font-noto">
+													<h4>\${a.product_name}</h4>
+													<p>\${a.product_price}</p>
+													<p>0개의 리뷰</p>
+												</div>
+										</div>
+									</div>`;
+										$('#rec-6').append(rec_template);
+									})
+								});
+								
+							});
 						</script>
 					</div>
 				</div>
@@ -437,29 +507,6 @@
 		crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-	<script>
-	$(document).ready(function(){
-	      $.ajax({
-	         type:"GET",
-	         url : "/list/recommend",
-	      }).done(function(data){
-	         console.log("recommend:", data);
-	         var jsonData = [];
-	      });
-
-	      $.ajax({
-	         type:"GET",
-	         url : "/list/news",
-	      }).done(function(data){
-	         console.log("news:", data);
-	         var jsonData = [];
-	      });
-	   });
-	</script>
-	
-
-
 <%@ include file="./headerFooter/footer.jsp"%>
 </body>
 

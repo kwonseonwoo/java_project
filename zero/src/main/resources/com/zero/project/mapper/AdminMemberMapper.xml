@@ -36,7 +36,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   <update id="modify">
   	update member
 	set member_id=#{member_id},
-		member_name=#{member_name},
+		member_username=#{member_username},
 		member_address_no=#{member_address_no},
 		member_address=#{member_address},
 		member_address_detail=#{member_address_detail},
@@ -51,11 +51,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   <select id="getListWithPaging" resultType="com.zero.project.model.MemberVO">
   <![CDATA[
   	select
-  		member_no, member_id, member_name, member_address, member_regdate
+  		member_no, member_id, member_username, member_address, member_regdate
   	from
   		(
        select /*+INDEX_DESC(member pk_member) */
-         rownum rn, member_no, member_id, member_name, member_address, member_regdate
+         rownum rn, member_no, member_id, member_username, member_address, member_regdate
        from 
          member
       where 

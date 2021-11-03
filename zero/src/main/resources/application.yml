@@ -1,8 +1,8 @@
 
 server:
-  port: 8080
+  port: 8000
   servlet:
-    context-path: /
+    context-path: / #localhost:8000/가 들어감
     encoding:
       charset: UTF-8
       enabled: true
@@ -24,9 +24,9 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: create #최초에만 create로, 나머지는 update
-#      naming:
-#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl #model에 있는 변수값과 같은 이름으로 데이터에 들어감
+      ddl-auto: update #최초에만 create로, 나머지는 update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl #model에 있는 변수값과 같은 이름으로 데이터에 들어감
       use-new-id-generator-mappings: false
     show-sql: true #콘솔창에 sql 보여줌
     properties:
@@ -38,6 +38,8 @@ spring:
       fail-on-empty-beans: false
       
   servlet:
-   multipart:
-     max-file-size: 50MB
-     max-request-size: 50MB
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+        
+        

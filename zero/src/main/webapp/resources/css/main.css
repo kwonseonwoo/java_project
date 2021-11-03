@@ -91,7 +91,7 @@ a:hover{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    transition: 0.3s all;
+    transition: 0.5s all;
 }
 
 .main-carousel-content{
@@ -99,13 +99,16 @@ a:hover{
     max-width: 1920px;
     height: 420px;
     position: relative;
+    cursor: pointer;
 }
 
 .main-carousel-content img{
-    width: 100%;
+    width: 90%;
     object-fit: cover;
-    transform: translate(-10%,-15%);
+    transform: translate(-5%,-35%);
     z-index: 0;
+    opacity: 0.9;
+    
 }
 
 .carousel-button{
@@ -115,12 +118,12 @@ a:hover{
     font-size: 35px;
     top: 50%;
     transform: translateY(-50%);
-    opacity: 0.3;
+    opacity: 0.5;
     z-index: 7;
 }
 
 .carousel-button:hover{
-    opacity: 0.6;
+    opacity: 0.7;
 }
 
 .bt-left{
@@ -132,11 +135,11 @@ a:hover{
 }
 
 .main-carousel-text{
-    width: 100px;
+    width: 30%;
     height: 100px;
     position: absolute;
-    left: 15%;
-    top: 50%;
+    left: 14%;
+    top: 52%;
     transform: translateY(-50%);
     color: white;
     z-index: 1;
@@ -146,10 +149,11 @@ a:hover{
     font-weight: 700;
     margin: 5px 0;
     font-size: 35px;
+    line-height: 110%;
 }
 
 .main-carousel-text p{
-    margin: 5px 0;
+    margin: 10px 0;
     font-weight: lighter;
 }
 
@@ -216,38 +220,48 @@ a:hover{
     width: 2300px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 0 0px;
     transition: 0.3s all;
     height: 380px;
     position: relative;
 }
 
+.rec-carousel-content-box{
+    height: 375px;
+    width: 100%;
+}
+
 .rec-carousel-content{
-    border: 1px solid red;
+    margin: 0 auto;
     box-sizing: border-box;
     height: 360px;
     position: relative;
     transition: 0.2s all;
-    margin: 0 15px;
+    width: 90%;
+    background-size:auto 100%; 
+    background-position:center;
 }
 
 .rec-carousel-content:hover{
-    height: 370px;
-    box-shadow: 2px 2px 2px 2px rgba(192, 192, 192, 0.2);
+    height: 375px;
+    width: 95%;
+    
+    box-shadow: 1px 2px 1px 1px rgba(87, 87, 87, 0.2);
 }
 
 
 .rcc-content{
     position: absolute;
     bottom: 0;
+    background-color:transparent;
 }
 
 .rcc-content h4, .rcc-content p{
     margin: 15px 20px;
+    background-color:transparent;
 }
 
 .rec-carousel-content img{
-    width: 100%;
+    height: 100%;
 }
 
 /* 메뉴 추천 캐러셀 끝 */
@@ -610,7 +624,7 @@ a:hover{
 .adminList-table-content2{
     padding: 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr 1fr 1fr 2fr 1fr 2fr;
+    grid-template-columns: 1fr 1fr 2fr 1fr 1fr 1fr 1fr 1fr;
     margin: 10px 0;
     align-items: center;
     border-bottom: 2px solid rgb(45, 45, 45);
@@ -619,7 +633,7 @@ a:hover{
 
 .adminList-table-title2{
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr 1fr 1fr 2fr 1fr 2fr;
+    grid-template-columns: 1fr 1fr 2fr 1fr 1fr 1fr 1fr 1fr;
     margin-bottom: 15px;
     align-items: center;
 }
