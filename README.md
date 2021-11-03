@@ -62,10 +62,11 @@
 - 로그인 기능(로그인, 회원가입, 회원수정 완료)
 - 관리자 기능(회원 수정&탈퇴, 상품 등록&수정&삭제 완료)
 - 메인페이지 디자인작업 완료
+- 메인페이지
+- ![](https://raw.githubusercontent.com/yongjuvv/java_project/master/img/%EC%A0%9C%EB%A1%9C%20%EC%BA%A1%EC%B2%98.PNG)
 
-![](C:\Users\Master\Desktop\제로 캡처.PNG)
-
-![](C:\Users\Master\Desktop\제로 관리자.PNG)
+- 관리자페이지
+- ![](https://raw.githubusercontent.com/yongjuvv/java_project/master/img/%EC%A0%9C%EB%A1%9C%20%EA%B4%80%EB%A6%AC%EC%9E%90.PNG)
 
 - 이후 추가적인 기능 구현할 예정
   - 일간, 주간, 월간 베스트메뉴(가장 판매량이 많은 메뉴) 추천 기능
