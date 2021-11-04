@@ -172,7 +172,7 @@ table {
 							<div>
 								<p class="text-c">
 									<c:out value="${product.product_type}"></c:out>
- 								</p> 
+								</p>
 							</div>
 							<div>
 								<p class="text-c">

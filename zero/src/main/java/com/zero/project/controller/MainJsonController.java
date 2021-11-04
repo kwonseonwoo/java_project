@@ -62,7 +62,7 @@ public class MainJsonController {
 		
 		/* System.out.println("success2"); */
 		
-		System.out.println(json);
+		System.out.println("신상품" + json);
 		
 		return json;
 	}
@@ -158,4 +158,66 @@ public class MainJsonController {
 		
 		return json;
 	}
+	
+	//인기 상품 리스트 출력
+	@GetMapping("/popularity")
+	public String popularity() {
+		
+		List<ProductVO> list = service.getList_pop();
+		
+		Gson gson = new Gson();
+		
+		String json = gson.toJson(list);
+		
+		System.out.println("인기 상품 리스트" + json);
+		
+		return json;
+		
+	}
+	//신상품 리스트 출력
+	@GetMapping("/new")
+	public String newPage() {
+		
+		List<ProductVO> list = service.getList_new();
+		
+		Gson gson = new Gson();
+		
+		String json = gson.toJson(list);
+		
+		System.out.println("인기 상품 리스트" + json);
+		
+		return json;
+		
+	}
+	//선물 상품 리스트 출력
+	@GetMapping("/pres")
+	public String pres() {
+		
+		List<ProductVO> list = service.getList_pres();
+		
+		Gson gson = new Gson();
+		
+		String json = gson.toJson(list);
+		
+		System.out.println("인기 상품 리스트" + json);
+		
+		return json;
+		
+	}
+	//인기 상품 리스트 출력
+	@GetMapping("/categoryList")
+	public String categoryList() {
+		
+		List<ProductVO> list = service.getList_pop();
+		
+		Gson gson = new Gson();
+		
+		String json = gson.toJson(list);
+		
+		System.out.println("인기 상품 리스트" + json);
+		
+		return json;
+		
+	}
+	
 }

@@ -290,7 +290,7 @@
 									type:"GET",
 									url : "/list/simple",
 								}).done(function(data){
-									var recData = []; 
+									var recData = [];
 									recData = data;
 									recData = recData.filter(a=>{
 										return a.product_type == "간편요리";

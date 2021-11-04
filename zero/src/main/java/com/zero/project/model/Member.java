@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -25,16 +26,22 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Entity
+@SequenceGenerator(name = "member_seq",
+				   sequenceName = "member_seq",
+				   initialValue = 1,
+				   allocationSize = 1
+				   )
 public class Member {
 
 	@Id //primary key
-	@GeneratedValue(strategy = GenerationType.IDENTITY) //DB의 넘버링 전략을 따름
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,
+							   generator = "member_seq") //DB의 넘버링 전략을 따름
 	private int member_no;
 	
 	@Column(nullable = false, length=50, unique = true)
 	private String member_id;
 	
-	@Column(nullable = false, length=100)
+	@Column(nullable = false, length = 100)
 	private String member_password;
 	
 	@Column(nullable = false, length = 20)

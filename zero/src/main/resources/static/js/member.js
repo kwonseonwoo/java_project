@@ -28,7 +28,7 @@ let index = {
 			contentType: "application/json; charset=utf-8"
 		}).done(function(resp) {
 			alert("회원가입 완료.");
-			location.href = "/";
+			location.href = "/main";
 		}).fail(function(error) {
 			alert(JSON.stringify(error));
 		});
@@ -52,7 +52,7 @@ let index = {
 			contentType: "application/json; charset=utf-8"
 		}).done(function(resp) {
 			alert("회원수정 완료.");
-			location.href = "/";
+			location.href = "/main";
 		}).fail(function(error) {
 			alert(JSON.stringify(error));
 		});

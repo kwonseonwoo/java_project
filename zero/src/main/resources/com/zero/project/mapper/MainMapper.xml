@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   </select> -->
   
   <select id="news" resultType="com.zero.project.model.ProductVO">
-  	select * from (select * from product order by product_regDate) where <![CDATA[ rownum < 9 ]]>
+  	select * from (select * from product order by product_regDate desc) where <![CDATA[ rownum < 9 ]]>
   </select>
   
   <select id="simple" resultType="com.zero.project.model.ProductVO">
@@ -42,11 +42,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
   
   <select id="getList" resultType="com.zero.project.model.ProductVO">
-  	select
-  		*
-  	from
-		product
-    where product_type = #{product_type}  
+  	select * from product
   </select>
 
   <select id="getList_pop" resultType="com.zero.project.model.ProductVO">

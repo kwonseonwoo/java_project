@@ -15,7 +15,7 @@
 	<name>zero</name>
 	<description>SpringBootProject</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -118,15 +118,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.zaxxer</groupId>
-			<artifactId>HikariCP</artifactId>
-			<version>2.6.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.oracle.jdbc</groupId>
-			<artifactId>ojdbc8</artifactId>
-			<version>12.2.0.1</version>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>12.1.0.1</version>
 		</dependency>
 
 		<!-- jackson-databind 라이브러리 추가 -->
@@ -140,7 +134,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>

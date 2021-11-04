@@ -28,7 +28,7 @@ public class MemberService {
 	// 회원가입
 	@Transactional
 	public void join(Member member) {
-		member.setMember_role(RoleType.ADMIN);
+		member.setMember_role(RoleType.USER);
 		String rawPassword = member.getMember_password();
 		String encPassword = encoder.encode(rawPassword);  //해쉬화
 		member.setMember_password(encPassword);

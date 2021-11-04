@@ -85,7 +85,7 @@
 									<p><input type="text" name="member_id" value="${member.member_id }" readonly="readonly"></p>
 								</div>
 								<div>
-									<p><input type="text" name="member_name" value="${member.member_username }" readonly="readonly"></p>
+									<p><input type="text" name="member_username" value="${member.member_username }" readonly="readonly"></p>
 								</div>
 								<div>
 									<p><input type="text" name="member_address_no" value="${member.member_address_no }"></p>
