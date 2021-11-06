@@ -89,6 +89,7 @@
 		.header{
 		    width: 100%;
 		    height: auto;
+		    border-bottom:1px solid rgb(78,78,78);
 		}
 		
 		.nav-top{
@@ -454,11 +455,35 @@
 		.search-contents{
 		    background-color: rgb(85, 85, 85);
 		}	
+		
+		.toggle-ul{
+			width:150px;
+			margin:0 auto;
+			position:absolute;
+			text-align: center;
+			background-color: rgb(25,25,25);
+			left: 509px;
+			z-index: 5;
+			border:1px solid rgb(78,78,78);
+			border-top:none;
+			transtion:0.3s all;
+			display:none;
+		}
+		
+		.toggle-ul li{
+			margin:0 auto 20px auto;
+			font-size: 15px;
+			
+		}
+		
+		.toggle-ul-hover{
+			display: block;
+		}
+		
 	</style>
 </head>
 
 <body>
-	<div class="wrap" id="wrap">
 		<!-- header -->
 		<div class="search-modal search-off">
 			<div class="search-box">
@@ -529,21 +554,32 @@
 			<div class="nav-body">
 				<div class="nav-body-contents">
 					<ul class="nav-body-ul">
-						<li class="hover-menu" id="hover-menu1"><a href="/productList/popularity">인기</a></li>
+						<li><a href="/productList/popularity">인기</a></li>
 						<li><a href="/productList/new">신메뉴</a></li>
 						<li><a href="/productList/pres">선물</a></li>
-						<li class="hover-menu" id="hover-menu2"><a href="#n">카테고리</a></li>
+						<li class="hover-menu" id="hover-menu"><a href="/productList/categoryList?product_type=간편요리">카테고리</a></li>
+						<li id="nav-special"><a href="#n">제로식철학</a></li>
+					</ul>
+					<ul class="toggle-ul hover-menu font-my">
 						<li><a href="/productList/categoryList?product_type=간편요리">간편요리</a></li>
 						<li><a href="/productList/categoryList?product_type=특별한 반찬">특별한 반찬</a></li>
 						<li><a href="/productList/categoryList?product_type=간식/간편식">간식과 간편식</a></li>
 						<li><a href="/productList/categoryList?product_type=주류/음료">주류/음료</a></li>
-						<li id="nav-special"><a href="#n">제로식철학</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
+		<script>
+			$(document).ready(function(){
+				$('.hover-menu').on('mouseenter',function(){
+					$('.toggle-ul').addClass('toggle-ul-hover');
+				});
+				$('.hover-menu').on('mouseleave',function(){
+					$('.toggle-ul').removeClass('toggle-ul-hover');
+				});
+			})
+		</script>
 		<!-- header 끝 -->
-	</div>
 
 	<!-- scripts -->
 	

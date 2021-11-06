@@ -112,7 +112,8 @@
 									console.log(recData);
 									var sampleView = recData.forEach(function(a){
 										var rec_template = `<div class="rec-carousel-content-box">
-											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');">
+											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');"
+														onclick="javascript: location.href='/productView/productView?product_no=\${a.product_no}'">
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
 													<p>\${a.product_price}</p>
@@ -255,7 +256,8 @@
 									 console.log("신상품: ", recData);
 									var sampleView = recData.forEach(function(a){
 										var rec_template = `<div class="rec-carousel-content-box">
-											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');">
+											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');"
+												onclick="javascript: location.href='/productView/productView?product_no=\${a.product_no}'">
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
 													<p>\${a.product_price}</p>
@@ -299,7 +301,8 @@
 									console.log(recData);
 									var sampleView = recData.forEach(function(a){
 										var rec_template = `<div class="rec-carousel-content-box">
-											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');">
+											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');"
+												onclick="javascript: location.href='/productView/productView?product_no=\${a.product_no}'">
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
 													<p>\${a.product_price}</p>
@@ -343,7 +346,8 @@
 									console.log(recData);
 									var sampleView = recData.forEach(function(a){
 										var rec_template = `<div class="rec-carousel-content-box">
-											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');">
+											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');"
+												onclick="javascript: location.href='/productView/productView?product_no=\${a.product_no}'">
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
 													<p>\${a.product_price}</p>
@@ -385,7 +389,8 @@
 									console.log(recData);
 									var sampleView = recData.forEach(function(a){
 										var rec_template = `<div class="rec-carousel-content-box">
-											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');">
+											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');"
+												onclick="javascript: location.href='/productView/productView?product_no=\${a.product_no}'">
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
 													<p>\${a.product_price}</p>
@@ -428,7 +433,8 @@
 									console.log(recData);
 									var sampleView = recData.forEach(function(a){
 										var rec_template = `<div class="rec-carousel-content-box">
-											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');">
+											<div class="rec-carousel-content" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');"
+												onclick="javascript: location.href='/productView/productView?product_no=\${a.product_no}'">
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
 													<p>\${a.product_price}</p>
@@ -447,6 +453,7 @@
 			</div>
 		</section>
 	</div>
+
 
 	<!-- scripts -->
 	<script>

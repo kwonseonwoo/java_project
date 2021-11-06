@@ -45,8 +45,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.csrf().disable() //csrf 토큰 비활성화 (테스트시 걸어두는게 좋음)
-			.authorizeRequests()
-				.antMatchers("/", "/main", "/auth/**", "/js/**", "/member/**", "/main/**", "/resources/**", "/admin/**", "/img/**" , "/list/**")
+			.authorizeRequests() //리스트에 있는 url은 로그인을 하지 않더라도 접근 가능하도록 지정된 것.
+				.antMatchers("/", "/productView/**", "/main", "/productList/**", "/auth/**", "/js/**", "/member/**", "/main/**", "/resources/**", "/admin/**", "/img/**" , "/list/**")
 				.permitAll()
 				.anyRequest()
 				.authenticated()

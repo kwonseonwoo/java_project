@@ -260,3 +260,34 @@ padding-top: 20px;
 	font-weight: 600;
 	border-radius: 4px;
 }
+
+/* img-drg */
+img{-webkit-user-drag: none;}
+
+.mr-au{
+	margin: 0 auto;
+}
+
+.ptb-30{
+	padding: 30px 0;
+}
+
+.strong{
+	font-weight: 600;
+}
+
+.clear{
+	clear: both;
+}
+
+.c-dg{
+	color: rgb(170, 170, 170);
+}
+
+.bg-gray{
+	background: rgb(119, 119, 119);
+}
+
+.bg-skyblue{
+	background-color: skyblue;
+}

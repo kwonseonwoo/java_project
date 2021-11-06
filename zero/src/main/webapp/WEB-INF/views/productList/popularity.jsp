@@ -25,8 +25,8 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/headerFooter/header.jsp"%>
 	<div class="wrap" id="wrap">
+	<%@ include file="/WEB-INF/views/headerFooter/header.jsp"%>
 		<script>
                 class makingObj {
                     constructor(i){
@@ -50,7 +50,7 @@
 
             </script>
 
-            <section class="products size15">
+            <section class="size15 products">
                 <div class="carousel-title">
                     <h2 class="font-noto">인기 메뉴</h2>
                         <p class="ml-10 c-g">제로식당의 인기 메뉴</p>
@@ -60,69 +60,68 @@
             </section>
             <script>
                 $(document).ready(function(){
-                    var simpleView = arr1.forEach(function (a,i){
-                        var sim_template = `
-                            <div class="products-content-box" id="simple-${i}">
-                                <div class="products-content test">
-                                    <div class="pc-content">
-                                        <h4>${a.title}</h4>
-                                        <p>${a.content}</p>
-                                        <p>${a.price}원</p>
-                                    </div>
-                                </div>
-                            </div> `;
-                            $('.products-box').append(sim_template);
-                    });
-                
-                    var didScroll = false;
-                    $(window).on('scroll', function (){didScroll = true;});
-                    setInterval(function (){
-                        var bottomH = $(window).scrollTop()+$(window).height() + 400;
-                        var docH = $(document).height();
-
-                        if(didScroll){
-                            didScroll = false;
-                            if(bottomH > docH) infiniteScrollContent();
-                        }
-                    }, 250);
-
-                    function infiniteScrollContent(){
-                        var scr = $(window).scrollTop();
-                        if(scr<4800){
-                            var simpleView = arr1.forEach(function (a,i){
+                	$.ajax({
+        				type:"GET",
+        				url:"/list/popularity",
+        			}).done(function(data){
+        				console.log("포퓰러데이터: ", data);
+        				var productList = [];
+        				productList = data;
+        				var simpleView = productList.forEach(function (a,i){
                             var sim_template = `
                                 <div class="products-content-box" id="simple-${i}">
-                                    <div class="products-content test">
+                                    <div class="products-content test" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('/img/\${a.product_img1 }');"
+                                    	onclick="javascript: location.href='/productView/productView?product_no=\${a.product_no}'">
                                         <div class="pc-content">
-                                            <h4>${a.title}</h4>
-                                            <p>${a.content}</p>
-                                            <p>${a.price}원</p>
+                                            <h4>\${a.product_name}</h4>
+                                            <p>\${a.product_price}</p>
+                                            <p>0개의 리뷰</p>
                                         </div>
                                     </div>
                                 </div> `;
-                            $('.products-box').append(sim_template);
-                            });
-                        }
-                        
-                    }
+                                $('.products-box').append(sim_template);
+                        });
+                    
+/*                         var didScroll = false;
+                        $(window).on('scroll', function (){didScroll = true;});
+                        setInterval(function (){
+                            var bottomH = $(window).scrollTop()+$(window).height() + 400;
+                            var docH = $(document).height();
+
+                            if(didScroll){
+                                didScroll = false;
+                                if(bottomH > docH) infiniteScrollContent();
+                            }
+                        }, 250);
+
+                        function infiniteScrollContent(){
+                            var scr = $(window).scrollTop();
+                            if(scr<4800){
+                                var simpleView = arr1.forEach(function (a,i){
+                                var sim_template = `
+                                    <div class="products-content-box" id="simple-${i}">
+                                        <div class="products-content test">
+                                            <div class="pc-content">
+                                                <h4>${a.title}</h4>
+                                                <p>${a.content}</p>
+                                                <p>${a.price}원</p>
+                                            </div>
+                                        </div>
+                                    </div> `;
+                                $('.products-box').append(sim_template);
+                                });
+                            }
+                            
+                        } */
+        				
+        				
+        			});
                 });
             </script>
+            <%@ include file="/WEB-INF/views/headerFooter/footer.jsp"%>
 	</div>
 	
-	<script>
-		<!-- JSON 데이터를 넘겨주기 위한 테스팅 코드 -->
-		$(document).ready(function(){
-			
-			$.ajax({
-				type:"GET",
-				url:"/list/popularity",
-			}).done(function(data){
-				console.log("데이터: ", data);
-			});
-			
-		});
-		
-	</script>
+
 	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -137,4 +136,3 @@
 		crossorigin="anonymous"></script>
 </body>
 </html>
-<%@ include file="/WEB-INF/views/headerFooter/footer.jsp"%>
