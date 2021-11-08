@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.zero.project.model.Criteria;
 import com.zero.project.model.ProductVO;
 
 @Mapper
@@ -55,5 +56,7 @@ public interface MainMapper {
 	//선물
 	public List<ProductVO> getList_pres();
 
+	
+	public List<ProductVO> getListWithPaging(Criteria cri);
 	
 }

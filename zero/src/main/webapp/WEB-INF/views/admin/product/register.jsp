@@ -16,7 +16,7 @@
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body>
-<%@ include file="../../headerFooter/header.jsp"%>
+<%@ include file="../../headerFooter/adminHeader.jsp"%>
 
 <div class="wrap">
 		<section class="admin size-all bg-dg pd-20">

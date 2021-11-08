@@ -2,6 +2,7 @@ package com.zero.project.service;
 
 import java.util.List;
 
+import com.zero.project.model.Criteria;
 import com.zero.project.model.ProductVO;
 
 public interface MainService {
@@ -46,5 +47,8 @@ public interface MainService {
 	
 	//선물
 	public List<ProductVO> getList_pres();
+	
+	
+	public List<ProductVO> getListWithPaging(Criteria cri);
 
 }

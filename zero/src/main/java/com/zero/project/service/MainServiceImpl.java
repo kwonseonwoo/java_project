@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zero.project.mapper.MainMapper;
+import com.zero.project.model.Criteria;
 import com.zero.project.model.ProductVO;
 
 import lombok.AllArgsConstructor;
@@ -107,6 +108,13 @@ public class MainServiceImpl implements MainService {
 	public List<ProductVO> getList_pres() {
 		
 		return mapper.getList_pres();
+	}
+
+	
+	@Override
+	public List<ProductVO> getListWithPaging(Criteria cri) {
+	
+		return mapper.getListWithPaging(cri);
 	}
 
 

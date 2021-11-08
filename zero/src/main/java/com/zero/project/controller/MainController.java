@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.zero.project.mapper.MainMapper;
+import com.zero.project.model.Criteria;
+import com.zero.project.model.PageDTO;
 import com.zero.project.model.ProductVO;
 import com.zero.project.service.AdminProductService;
 
@@ -92,6 +94,17 @@ public class MainController {
 		  model.addAttribute("days", content2[1]);
 		 
 
+	}
+	
+	@RequestMapping("/searchForm/search")
+	public void searchForm(Criteria cri, Model model) {
+		
+		model.addAttribute("list", service.getListWithPaging(cri));
+		
+		System.out.println("검색 리스트 출력: " + service.getListWithPaging(cri));
+		
+		/* model.addAttribute("pageMaker", cri); */
+		
 	}
 
 }

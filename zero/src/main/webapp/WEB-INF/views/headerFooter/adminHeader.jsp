@@ -412,15 +412,14 @@
 		    margin-bottom: 20px;
 		}
 		
-		.search-div button{
+		.search-div i{
 		    position: absolute;
 		    right: 5px;
-		    top: 50px;
+		    top: 70px;
 		    color: darkgray;
-		    background-color: rgb(85, 85, 85);
 		}
 		
-		#searchForm{
+		.search-input{
 		    width: 100%;
 		    height: 60px;
 		    padding: 15px 0;
@@ -490,40 +489,14 @@
 			<div class="search-box">
 				<h4>검색<span onclick="searchOff()">X</span></h4>
 				<div class="search-div">
-					<form id="searchForm" action="/searchForm/search" method="get">
-						<input type="hidden" name="type" value="TCW" style="display:none;">
-						<input type="text" name="keyword" class="search-input" placeholder="상품이름이나 종류를 입력해주세요"> 
-						<button class="fas fa-search fa-2x"></button>
-					</form>
+					<input type="text" class="search-input" placeholder="메뉴명이나 상점명을 입력해주세요" ><i class="fas fa-search fa-2x"></i>
 				</div>
-<!-- 				<div class="search-contents">
+				<div class="search-contents">
 					<h4 class="main-color">제로식당 제안 메뉴</h4>
 					<div></div>
-				</div> -->
+				</div>
 			</div>
 		</div>
-		
-		<script>
-		$(document).ready(function(){
-	
-		var searchForm=$("#searchForm");
-
-		$("#searchForm button").on("click",function(e){
-			
-			if(!searchForm.find("input[name='keyword']").val()){
-				alert("검색 키워드를 입력하세요");
-				return false;
-			}
-			
-			e.preventDefault();
-			
-			searchForm.submit();
-			
-			});
-		
-		});
-		
-		</script>
 		
 		<div class="header">
 			<div class="nav-top">
@@ -536,7 +509,6 @@
 						const searchClick = function(){
 							$('.search-modal').removeClass('search-off');
 						}
-
 						const searchOff = function(){
 							$('.search-modal').addClass('search-off');
 						}

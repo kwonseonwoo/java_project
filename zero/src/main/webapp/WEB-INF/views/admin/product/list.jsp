@@ -63,7 +63,7 @@ table {
 
 </head>
 <body>
-	<%@ include file="../../headerFooter/header.jsp"%>
+	<%@ include file="../../headerFooter/adminHeader.jsp"%>
 	<div class="wrap" id="wrap">
 		<section class="admin size-all bg-dg pd-20">
 			<div class="size15 admin-title bg-main3 font-noto">

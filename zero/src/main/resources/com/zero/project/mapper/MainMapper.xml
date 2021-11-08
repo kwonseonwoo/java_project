@@ -4,6 +4,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 <mapper namespace="com.zero.project.mapper.MainMapper">
 
+<sql id="criteria">
+	<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+		<foreach collection="typeArr" item="type">
+			<trim prefix="OR">
+				<choose>
+					<when test="type == 'T'.toString() ">
+						product_name like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'C'.toString() ">
+						product_no like '%'||#{keyword}||'%'
+					</when>					
+					<when test="type == 'W'.toString() ">
+						product_type like '%'||#{keyword}||'%'
+					</when>					
+				</choose>
+			</trim>
+		</foreach>
+	</trim>
+</sql>
+
   <select id="recommend" resultType="com.zero.project.model.ProductVO">
   	select * from (select * from product order by product_price desc) where <![CDATA[ rownum < 9 ]]> 
   </select>
@@ -55,6 +75,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   <select id="getList_pres" resultType="com.zero.project.model.ProductVO">
   	select * from product
+  </select>
+  
+  <select id="getListWithPaging" resultType="com.zero.project.model.ProductVO">
+  	  <![CDATA[
+  	select
+  		product_no, product_name, product_price, product_type, product_img1, product_img2, product_regDate, product_saleCount
+  	from
+  		(
+       select /*+INDEX_DESC(product pk_product) */
+         rownum rn, product_no, product_name, product_price, product_type, product_img1, product_img2, product_regDate, product_saleCount
+       from 
+         product
+      where 
+     ]]> 
+     <include refid="criteria"></include> 
+    <![CDATA[ 
+      )
+  where rn > 0
+  ]]>
   </select>
   
 </mapper>
