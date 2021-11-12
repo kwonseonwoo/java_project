@@ -43,9 +43,9 @@
 
 </head>
 <body>
-<%@ include file="../../headerFooter/adminHeader.jsp"%>
 
 	<div class="wrap" id="wrap">
+	<%@ include file="../../headerFooter/adminHeader.jsp"%>
 		<section class="admin size-all bg-dg pd-20">
                <div class="size15 admin-title bg-main3 font-noto">
                    <h3>관리자화면</h3>
@@ -158,7 +158,7 @@
                    });
                })
            </script> -->	
-           
+           <%@ include file="../../headerFooter/footer.jsp"%>
            
         </div>
 
@@ -226,4 +226,3 @@ $(document).ready(function(){
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </body>
 </html>
-<%@ include file="../../headerFooter/footer.jsp"%>

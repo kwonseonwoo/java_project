@@ -80,20 +80,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   <select id="getListWithPaging" resultType="com.zero.project.model.ProductVO">
   	  <![CDATA[
   	select
-  		product_no, product_name, product_price, product_type, product_img1, product_img2, product_regDate, product_saleCount
+  		product_no, product_name, product_price, product_type, product_img1, product_img2, product_regDate, product_saleCount, product_replyCnt
   	from
   		(
        select /*+INDEX_DESC(product pk_product) */
-         rownum rn, product_no, product_name, product_price, product_type, product_img1, product_img2, product_regDate, product_saleCount
+         rownum rn, product_no, product_name, product_price, product_type, product_img1, product_img2, product_regDate, product_saleCount, product_replyCnt
        from 
          product
       where 
      ]]> 
      <include refid="criteria"></include> 
     <![CDATA[ 
+    	rownum > 0
       )
   where rn > 0
   ]]>
+  </select>
+  
+  <select id="avg" resultType="com.zero.project.model.ReplyVO">
+  	select avg(review_score) as average from review group by product_no having product_no=#{product_no}
   </select>
   
 </mapper>

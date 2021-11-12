@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상품관리 페이지</title>
+<title>상품검색 페이지</title>
 <link rel="stylesheet" href="/resources/css/reset.css">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -44,7 +44,7 @@
 							<div class="pc-content">
 								<h4>${product.product_name }</h4>
 								<p>${product.product_price }</p>
-								<p>0개의 리뷰</p>
+								<p>${product.product_replyCnt }개의 리뷰</p>
 							</div>
 						</div>
 					</div>

@@ -68,9 +68,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   		select product_seq.nextval from dual
   	</selectKey>
   	insert into product(product_no, product_name, product_price, product_img1, product_img2, product_type,
-  						product_regDate, product_saleCount)
+  						product_regDate, product_saleCount, product_replyCnt)
   	values(#{product_no}, #{product_name}, #{product_price}, #{product_img1}, #{product_img2}, #{product_type},
-  		   DEFAULT, #{product_saleCount})
+  		   DEFAULT, #{product_saleCount}, DEFAULT)
   </insert>
   
   <select id="getTotalCount" resultType="int">
@@ -84,5 +84,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	set product_saleCount = product_saleCount + 1
   	where product_no = #{product_no}
   </update>
+  
+  <update id="replyCnt_modify">
+  	update product
+  	set product_replyCnt = product_replyCnt + 1
+  	where product_no = #{product_no}
+  </update>
+
+  <update id="replyCnt_modify2">
+  	update product
+  	set product_replyCnt = product_replyCnt - 1
+  	where product_no = #{product_no}
+  </update>
+
   
 </mapper>

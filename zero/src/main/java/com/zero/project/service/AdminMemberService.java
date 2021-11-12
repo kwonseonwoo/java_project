@@ -21,4 +21,6 @@ public interface AdminMemberService {
 	
 	public int getTotalCount(Criteria cri);
 	
+	public MemberVO getMember2(String member_id);
+	
 }

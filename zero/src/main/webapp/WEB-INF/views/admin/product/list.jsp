@@ -252,6 +252,7 @@ table {
                })
            </script> -->
 
+	<%@ include file="../../headerFooter/footer.jsp"%>
 
 	</div>
 
@@ -325,4 +326,3 @@ $(document).ready(function(){
 		
 </body>
 </html>
-<%@ include file="../../headerFooter/footer.jsp"%>

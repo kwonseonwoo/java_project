@@ -22,4 +22,6 @@ public interface AdminMemberMapper {
 	
 	public int getTotalCount(Criteria cri);
 	
+	public MemberVO getMember2(String member_id);
+	
 }

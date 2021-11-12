@@ -54,4 +54,9 @@ public class AdminProductServiceImpl implements AdminProductService{
 		return mapper.saleCount_modify(vo) ==1;
 	}
 
+	/*
+	 * @Override public boolean replyCnt_modify(ProductVO vo) { return
+	 * mapper.replyCnt_modify(vo) ==1; }
+	 */
+
 }

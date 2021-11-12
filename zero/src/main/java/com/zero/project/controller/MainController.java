@@ -1,20 +1,33 @@
 package com.zero.project.controller;
 
+import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.zero.project.config.auth.PrincipalDetail;
+import com.zero.project.mapper.AdminMemberMapper;
 import com.zero.project.mapper.MainMapper;
 import com.zero.project.model.Criteria;
+import com.zero.project.model.Member;
+import com.zero.project.model.MemberVO;
 import com.zero.project.model.PageDTO;
 import com.zero.project.model.ProductVO;
+import com.zero.project.model.ReplyVO;
+import com.zero.project.service.AdminMemberService;
 import com.zero.project.service.AdminProductService;
+import com.zero.project.service.MainService;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
@@ -25,14 +38,17 @@ public class MainController {
 
 	@Setter(onMethod_ = @Autowired)
 	private AdminProductService service;
-
-	@Setter(onMethod_ = @Autowired)
-	private MainMapper mapper;
-
+	
+	@Setter(onMethod_= @Autowired)
+	private AdminMemberService service2;
+	
+	@Setter(onMethod_= @Autowired)
+	private MainService service3;
+	
 	// 메인 페이지
 	@GetMapping("/main")
 	public void main() {
-
+		
 	}
 
 	// 인기 상품 리스트 출력
@@ -92,19 +108,42 @@ public class MainController {
 		  model.addAttribute("month", content[1]); 
 		  model.addAttribute("day", content2[0]); 
 		  model.addAttribute("days", content2[1]);
-		 
+		  
+		  String piece = null;
+		  
+		  if(vo.getProduct_replyCnt() != 0) {
+			  
+		  ReplyVO replies = service3.avg(product_no);
+		  System.out.println(replies.getAverage());
+		  
+		  String str = replies.getAverage();
+		  
+		  
+		  if(str.length() >= 4) {
+			  piece = str.substring(0,3);
+		  }else {
+			  piece = str;
+		  }
+		  
+		  }
+		  System.out.println("average: " + piece);
+		  
+		  model.addAttribute("average", piece);
 
+		 
 	}
 	
 	@RequestMapping("/searchForm/search")
 	public void searchForm(Criteria cri, Model model) {
 		
-		model.addAttribute("list", service.getListWithPaging(cri));
+		model.addAttribute("list", service3.getListWithPaging(cri));
 		
-		System.out.println("검색 리스트 출력: " + service.getListWithPaging(cri));
+		System.out.println("검색 리스트 출력: " + service3.getListWithPaging(cri));
 		
 		/* model.addAttribute("pageMaker", cri); */
 		
 	}
+
+	
 
 }

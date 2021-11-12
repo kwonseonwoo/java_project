@@ -27,8 +27,9 @@
 
 </head>
 <body>
-<%@ include file="../../headerFooter/adminHeader.jsp"%>
+
 	<div class="wrap">
+	<%@ include file="../../headerFooter/adminHeader.jsp"%>
 		<section class="admin size-all bg-dg pd-20">
 			<div class="size15 admin-title bg-main3 font-noto">
 				<h3>관리자화면</h3>
@@ -122,6 +123,7 @@
 				</div>
 			</div>
 		</section>
+		<%@ include file="../../headerFooter/footer.jsp"%>
 	</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -149,6 +151,6 @@ $(document).ready(function(){
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 		
-<%@ include file="../../headerFooter/footer.jsp"%>
+
 </body>
 </html>

@@ -16,9 +16,9 @@
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body>
-<%@ include file="../../headerFooter/adminHeader.jsp"%>
 
 <div class="wrap">
+<%@ include file="../../headerFooter/adminHeader.jsp"%>
 		<section class="admin size-all bg-dg pd-20">
 			<div class="size15 admin-title bg-main3 font-noto">
 				<h3>관리자화면</h3>
@@ -111,6 +111,7 @@
 				</div>
 			</div>
 		</section>
+		<%@ include file="../../headerFooter/footer.jsp"%>
 	</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -121,6 +122,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 		
-<%@ include file="../../headerFooter/footer.jsp"%>
+
 </body>
 </html>

@@ -24,4 +24,7 @@ public interface AdminProductMapper {
 	
 	public int saleCount_modify(ProductVO vo);
 	
+	public void replyCnt_modify(int product_no);
+
+	public void replyCnt_modify2(int product_no);
 }

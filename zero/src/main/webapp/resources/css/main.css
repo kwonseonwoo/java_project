@@ -48,9 +48,9 @@ span{
     display: inline;
 }
 
-/* .test{
+.test{
     border: 1px solid red;
-} */
+}
 
 
 .bg-c{
@@ -826,6 +826,164 @@ a:hover{
     margin-top: 10px;
 }
 
+/* pv-comment */
+.pv-comments{
+    padding: 30px;
+}
+
+.pv-comments-content{
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    grid-column-gap: 15px;
+    padding: 20px 0;
+    border-top: 1px solid rgb(172, 144, 107);
+}
+
+.pv-cc-img{
+    height: 95px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.pv-cc-img img{
+    height:100%;
+    object-fit: cover;
+}
+
+
+.pv-cc-text p, .pv-cc-text div{
+    margin: 10px 5px;
+}
+
+.pv-cc-text p{
+    font-size: 14px;
+}
+
+.pv-cc-text p strong{
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.pv-cc-stars{
+    color: rgb(121, 121, 121);
+    display: flex;
+    justify-content: flex-start;
+}
+
+.pv-cc-st{
+    font-size: 25px;
+    margin: 0;
+    color: rgb(121, 121, 121);
+}
+.pv-cc-st-on{
+    color: goldenrod;
+}
+
+.none{
+	display: none;
+}
+
+.pv-comments-button{
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+/* modal */
+.re-modal{
+    width: 100vw;
+    min-height: 100vh;
+    position: fixed;
+    z-index: 20;
+    background-color: rgb(114, 114, 114);
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+    transition: 1s all;
+}
+
+.re-modal-contents{
+    width: 50%;
+    min-height: 300px;
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%,-40%);
+    opacity: 1;
+    background-color: black;
+    border-radius: 4px;
+    padding: 20px;
+    border: 3px solid rgb(172, 144, 107);
+}
+
+.rmc-info{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: transparent;
+    margin-bottom: 20px;
+}
+
+.rmc-info h5{
+    margin-right: 20px;
+}
+
+.rmc-stars{
+    display: flex;
+}
+
+.star{
+    color: rgb(78, 78, 78);
+    font-size: 35px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.star-on{
+    color: goldenrod;
+}
+
+.rmc-text{
+    display: 100%;
+    background-color: transparent;
+}
+.rmc-textarea{
+    width: 100%;
+    min-height: 100px;
+    border-radius: 4px;
+    background-color: rgb(20, 20, 20);
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1px;
+    border: 1px solid rgb(172, 144, 107);
+}
+
+.rmc-button{
+    display: flex;
+    background-color: transparent;
+    padding: 15px 0;
+}
+
+.rmc-button button, .rmc-button div{
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    margin-right: 10px;
+    border-radius: 4px;
+    line-height: 40px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.border-main3{
+    border: 1px solid rgb(172, 144, 107);
+}
+
+
 /* products view left �� - ���� �� ���� */
 
 /* products view right  */
@@ -834,9 +992,6 @@ a:hover{
     position: sticky;
     top:0px;
     align-self: start;
-}
-
-.for-sticky{
 }
 
 .sticky-on{
@@ -1004,4 +1159,40 @@ a:hover{
 
 .pvp-off{
     display: none;
+}
+
+.none{
+	display: none;
+}
+
+.pv-del{
+    padding: 40px;
+}
+
+.pv-del-contents{
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(172, 144, 107);
+}
+
+.pv-del-title{
+    border-bottom: 1px solid rgb(172, 144, 107);
+    padding: 15px 0;
+}
+
+.pv-del-content{
+    margin-top: 20px;
+}
+
+.pv-del-content p{
+    margin: 15px 0;
+}
+
+.pv-promise{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 15px;
+}
+
+.pv-promise div p{
+    line-height: 160%;
 }

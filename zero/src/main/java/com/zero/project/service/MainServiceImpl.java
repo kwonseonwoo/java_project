@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.zero.project.mapper.MainMapper;
 import com.zero.project.model.Criteria;
 import com.zero.project.model.ProductVO;
+import com.zero.project.model.ReplyVO;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
@@ -115,6 +116,12 @@ public class MainServiceImpl implements MainService {
 	public List<ProductVO> getListWithPaging(Criteria cri) {
 	
 		return mapper.getListWithPaging(cri);
+	}
+
+	@Override
+	public ReplyVO avg(int product_no) {
+		
+		return mapper.avg(product_no);
 	}
 
 

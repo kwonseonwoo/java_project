@@ -75,7 +75,7 @@
 	                                        <div class="pc-content">
 												<h4>\${a.product_name}</h4>
 		                                        <p>\${a.product_price}</p>
-		                                        <p>0개의 리뷰</p>
+		                                        <p>\${a.product_replyCnt}개의 리뷰</p>
 	                                        </div>
 	                                    </div>
                                 </div> `;

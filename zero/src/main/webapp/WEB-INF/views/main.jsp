@@ -18,8 +18,8 @@
 </head>
 
 <body class="bg-c">
-<%@ include file="./headerFooter/header.jsp"%>
 	<div class="wrap" id="wrap">
+	<%@ include file="./headerFooter/header.jsp"%>
 		<!-- 메인 캐러셀 -->
 		<section class="main-carousel">
 			<button class="carousel-button bt-left" onclick="mainLeft()"><i class="fas fa-chevron-left"></i></button>
@@ -117,7 +117,7 @@
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
 													<p>\${a.product_price}</p>
-													<p>0개의 리뷰</p>
+													<p>\${a.product_replyCnt}개의 리뷰</p>
 												</div>
 										</div>
 									</div>`;
@@ -261,7 +261,7 @@
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
 													<p>\${a.product_price}</p>
-													<p>0개의 리뷰</p>
+													<p>\${a.product_replyCnt}개의 리뷰</p>
 												</div>
 										</div>
 									</div>`;
@@ -306,7 +306,7 @@
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
 													<p>\${a.product_price}</p>
-													<p>0개의 리뷰</p>
+													<p>\${a.product_replyCnt}개의 리뷰</p>
 												</div>
 										</div>
 									</div>`;
@@ -351,7 +351,7 @@
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
 													<p>\${a.product_price}</p>
-													<p>0개의 리뷰</p>
+													<p>\${a.product_replyCnt}개의 리뷰</p>
 												</div>
 										</div>
 									</div>`;
@@ -394,7 +394,7 @@
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
 													<p>\${a.product_price}</p>
-													<p>0개의 리뷰</p>
+													<p>\${a.product_replyCnt}개의 리뷰</p>
 												</div>
 										</div>
 									</div>`;
@@ -438,7 +438,7 @@
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
 													<p>\${a.product_price}</p>
-													<p>0개의 리뷰</p>
+													<p>\${a.product_replyCnt}개의 리뷰</p>
 												</div>
 										</div>
 									</div>`;
@@ -452,6 +452,7 @@
 				</div>
 			</div>
 		</section>
+		<%@ include file="./headerFooter/footer.jsp"%>
 	</div>
 
 
@@ -514,7 +515,7 @@
 		crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<%@ include file="./headerFooter/footer.jsp"%>
+
 </body>
 
 </html>

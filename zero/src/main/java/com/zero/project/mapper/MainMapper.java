@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.zero.project.model.Criteria;
 import com.zero.project.model.ProductVO;
+import com.zero.project.model.ReplyVO;
 
 @Mapper
 public interface MainMapper {
@@ -58,5 +59,7 @@ public interface MainMapper {
 
 	
 	public List<ProductVO> getListWithPaging(Criteria cri);
+	
+	public ReplyVO avg(int product_no);
 	
 }

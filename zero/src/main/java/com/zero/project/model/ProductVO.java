@@ -24,5 +24,6 @@ public class ProductVO {
 	/* 상품 상세내용 출력을 위한 속성 */
 	private String product_img2;
 	
+	private int product_replyCnt;
 	
 }

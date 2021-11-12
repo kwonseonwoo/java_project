@@ -22,4 +22,6 @@ public interface AdminProductService {
 	
 	public boolean saleCount_modify(ProductVO vo);
 	
+	/* public boolean replyCnt_modify(ProductVO vo); */
+	
 }

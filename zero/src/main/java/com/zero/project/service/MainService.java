@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.zero.project.model.Criteria;
 import com.zero.project.model.ProductVO;
+import com.zero.project.model.ReplyVO;
 
 public interface MainService {
 
@@ -50,5 +51,7 @@ public interface MainService {
 	
 	
 	public List<ProductVO> getListWithPaging(Criteria cri);
+	
+	public ReplyVO avg(int product_no);
 
 }

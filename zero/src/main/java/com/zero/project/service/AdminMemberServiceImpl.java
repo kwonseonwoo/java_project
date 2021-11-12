@@ -54,5 +54,10 @@ public class AdminMemberServiceImpl implements AdminMemberService {
 
 		return mapper.getTotalCount(cri);
 	}
+
+	@Override
+	public MemberVO getMember2(String member_id) {
+		return mapper.getMember2(member_id);
+	}
 	
 }
