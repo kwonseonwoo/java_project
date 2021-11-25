@@ -26,4 +26,6 @@ public class ProductVO {
 	
 	private int product_replyCnt;
 	
+	private int sumtotals;
+	
 }

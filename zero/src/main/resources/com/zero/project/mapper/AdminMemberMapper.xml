@@ -44,7 +44,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		member_address_no=#{member_address_no},
 		member_address=#{member_address},
 		member_address_detail=#{member_address_detail},
-		member_reference=#{member_reference}
+		member_reference=#{member_reference},
+		member_email=#{member_email},
+		member_phone=#{member_phone}
 		where member_no=#{member_no}		
   </update>
   

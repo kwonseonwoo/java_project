@@ -17,4 +17,7 @@ public class MemberVO {
 	private String member_reference;
 	private Date member_regDate;
 	
+	private String member_email;
+	private String member_phone;
+	
 }

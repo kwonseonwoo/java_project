@@ -77,7 +77,7 @@
                                     	 onclick="javascript: location.href='/productView/productView?product_no=\${a.product_no}'">
                                          <div class="pc-content">
                                              <h4>\${a.product_name}</h4>
-                                             <p>\${a.product_price}</p>
+                                             <p>\${a.product_price}원</p>
                                              <p>\${a.product_replyCnt}개의 리뷰</p>
                                          </div>
                                      </div>

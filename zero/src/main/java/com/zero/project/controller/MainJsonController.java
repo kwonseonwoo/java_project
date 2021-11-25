@@ -1,5 +1,6 @@
 package com.zero.project.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 import com.zero.project.model.ProductVO;
+import com.zero.project.service.AdminProductService;
 import com.zero.project.service.MainService;
 
 import lombok.Setter;
@@ -20,7 +22,11 @@ public class MainJsonController {
 
 	@Setter(onMethod_ = @Autowired)
 	private MainService service;
+	
+	@Setter(onMethod_= @Autowired)
+	private AdminProductService productService;
 
+	
 	/* 이 메뉴는 어떠세요? */
 	@SuppressWarnings("deprecation")
 	@GetMapping(value = "/recommend", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE,
@@ -201,7 +207,7 @@ public class MainJsonController {
 
 	}
 
-	// 인기 상품 리스트 출력
+	// 카테고리 리스트 출력
 	@GetMapping(value = "/categoryList", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE,
 			MediaType.APPLICATION_XML_VALUE })
 	public String categoryList() {
@@ -217,5 +223,125 @@ public class MainJsonController {
 		return json;
 
 	}
+	
+	@GetMapping(value="/today", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,
+			MediaType.APPLICATION_XML_VALUE})
+	public String today() {
+		
+		List<ProductVO> list = service.today();
+		
+		List<ProductVO> trans_data = new ArrayList<>();
+		
+		Gson gson = new Gson();
+		
+		
+		if(list != null && !list.isEmpty()) {
+			for(int i=0; i<list.size(); i++) {
+				
+				
+				if(list.get(i) != null) {
+					
+					int product_no = list.get(i).getProduct_no();
+					
+					ProductVO vo = productService.getProduct(product_no);
+										
+					trans_data.add(vo);
+					
+				} 
 
+			}
+			
+			String json = gson.toJson(trans_data);
+			
+			return json;
+			
+		} else {
+			
+			String str = "오늘의 베스트 상품 데이터가 없습니다. 선우에게 문의하세요.";
+			
+			String data = gson.toJson(str);
+			
+			return data;
+		}
+		
+	}
+	
+	@GetMapping(value="/week", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,
+			MediaType.APPLICATION_XML_VALUE})
+	public String week() {
+		
+		List<ProductVO> list = service.week();
+		
+		List<ProductVO> trans_data = new ArrayList<>();
+		
+		Gson gson = new Gson();
+		
+		
+		if(list != null && !list.isEmpty()) {
+			for(int i=0; i<9; i++) {
+				
+				if(list.get(i) != null) {
+					
+					int product_no = list.get(i).getProduct_no();
+					
+					ProductVO vo = productService.getProduct(product_no);
+					
+					trans_data.add(vo);
+					
+				}
+			}
+			
+			String json = gson.toJson(trans_data);
+			
+			return json;
+			
+		} else {
+			
+			String str = "이번주 베스트 상품 데이터가 없습니다. 선우에게 문의하세요.";
+			
+			String data = gson.toJson(str);
+			
+			return data;
+		}
+	}
+	
+	@GetMapping(value="/month", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,
+			MediaType.APPLICATION_XML_VALUE})
+	public String month() {
+		
+		List<ProductVO> list = service.month();
+		
+		List<ProductVO> trans_data = new ArrayList<>();
+		
+		Gson gson = new Gson();
+		
+		
+		if(list != null && !list.isEmpty()) {
+			for(int i=0; i<9; i++) {
+				
+				if(list.get(i) != null) {
+					
+					int product_no = list.get(i).getProduct_no();
+					
+					ProductVO vo = productService.getProduct(product_no);
+					
+					trans_data.add(vo);
+					
+				}
+			}
+			
+			String json = gson.toJson(trans_data);
+			
+			return json;
+			
+		} else {
+			
+			String str = "이번달 베스트 상품 데이터가 없습니다. 선우에게 문의하세요.";
+			
+			String data = gson.toJson(str);
+			
+			return data;
+		}
+
+	}
 }

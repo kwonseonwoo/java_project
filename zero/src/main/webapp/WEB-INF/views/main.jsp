@@ -116,7 +116,7 @@
 														onclick="javascript: location.href='/productView/productView?product_no=\${a.product_no}'">
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
-													<p>\${a.product_price}</p>
+													<p>\${a.product_price}원</p>
 													<p>\${a.product_replyCnt}개의 리뷰</p>
 												</div>
 										</div>
@@ -153,46 +153,76 @@
 			<div class="best-box best-off">
 			</div>
 			<script>
-				var bestList = [{num:0,name:'원할머니 보쌈', price:12000},{num:1,name:'BHC쌈', price:12000},{num:2,name:'김할머니 보쌈', price:12000},
-						{num:3,name:'김빡빡이 보쌈', price:12000},{num:4,name:'호호아줌마 보쌈', price:12000},{num:5,name:'원수의불 보쌈', price:12000},
-						{num:6,name:'무량수불 보쌈', price:12000},{num:7,name:'금강불괴 보쌈', price:12000},{num:8,name:'만근추 갈비', price:12000}];
-
 				$(document).ready(function(){
-					var dBestView = bestList.forEach(function (a){
-						var bestTemplate = `<div class="best-content ">
-								<div class="best-img"><img src="resources/img/img.png"></div>
+					
+					$.ajax({
+						type:'GET',
+						url:'/list/today',
+					}).done(function(data){
+						console.log("투데이 데이터: ", data);
+						var today_list = [];
+						today_list = data;
+						today_list = today_list.slice(0,9);
+					
+					var dBestView = today_list.forEach(function (a){
+						var bestTemplate = `<div class="best-content " 
+						onclick="javascript: location.href='/productView/productView?product_no=\${a.product_no}'">
+								<div class="best-img"><img src="/img/\${a.product_img1}"></div>
 								<div class="best-text">
-									<h5>\${a.name}</h5>
-									<p>\${a.num}</p>
-									<p class="best-price">\${a.price}</p>
+									<h5>\${a.product_name}</h5>
+									<p>\${a.product_replyCnt}개의 리뷰</p>
+									<p class="best-price">\${a.product_price}원</p>
 								</div>
 							</div>`;
 						$('.best-box').eq(0).append(bestTemplate);
 					});
-
-					var wBestView = bestList.forEach(function (a){
-						var bestTemplate = `<div class="best-content">
-								<div class="best-img"><img src="resources/img/img.png"></div>
+				});
+					
+					$.ajax({
+						type:'GET',
+						url:'/list/week',
+					}).done(function(data){
+						console.log("이번주 데이터: ", data);
+						var week_list = [];
+						week_list = data;
+						week_list = week_list.slice(0,9);
+						
+					var wBestView = week_list.forEach(function (a){
+						var bestTemplate = `<div class="best-content"
+						onclick="javascript: location.href='/productView/productView?product_no=\${a.product_no}'">
+								<div class="best-img"><img src="/img/\${a.product_img1}"></div>
 								<div class="best-text">
-									<h5>\${a.name}123123</h5>
-									<p>\${a.num}</p>
-									<p class="best-price">\${a.price}</p>
+									<h5>\${a.product_name}</h5>
+									<p>\${a.product_replyCnt}개의 리뷰</p>
+									<p class="best-price">\${a.product_price}원</p>
 								</div>
 							</div>`;
 						$('.best-box').eq(1).append(bestTemplate);
 					});
+				});
+					
+					$.ajax({
+						type:'GET',
+						url:'/list/month',
+					}).done(function(data){
+						console.log("이번달 데이터: ", data);
+						var month_list = [];
+						month_list = data;
+						month_list = month_list.slice(0,9);
 
-					var mBestView = bestList.forEach(function (a){
-						var bestTemplate = `<div class="best-content">
-								<div class="best-img"><img src="resources/img/img.png"></div>
+					var mBestView = month_list.forEach(function (a){
+						var bestTemplate = `<div class="best-content"
+						onclick="javascript: location.href='/productView/productView?product_no=\${a.product_no}'">
+								<div class="best-img"><img src="/img/\${a.product_img1}"></div>
 								<div class="best-text">
-									<h5>\${a.name}</h5>
-									<p>\${a.num}123123123</p>
-									<p class="best-price">\${a.price}</p>
+									<h5>\${a.product_name}</h5>
+									<p>\${a.product_replyCnt}개의 리뷰</p>
+									<p class="best-price">\${a.product_price}원</p>
 								</div>
 							</div>`;
 						$('.best-box').eq(2).append(bestTemplate);
 					});
+				});
 
 					$('.best-tag div').eq(0).on('click',function(){
 						$('.best-box').eq(0).removeClass('best-off');
@@ -204,6 +234,8 @@
 						$('.best-tag span').eq(0).removeClass('off');
 						$('.best-tag span').eq(1).addClass('off');
 						$('.best-tag span').eq(2).addClass('off');
+						$(".best-title h2").html("오늘의 베스트셀러");
+						$(".best-title p").html("지금 가장 많이 구매되고 있는 메뉴입니다");
 					})
 
 					$('.best-tag div').eq(1).on('click',function(){
@@ -216,6 +248,8 @@
 						$('.best-tag span').eq(1).removeClass('off');
 						$('.best-tag span').eq(2).addClass('off');
 						$('.best-tag span').eq(0).addClass('off');
+						$(".best-title h2").html("이번 주 베스트셀러");
+						$(".best-title p").html("이번 주에 가장 많이 구매되고 있는 메뉴입니다");
 					})
 
 					$('.best-tag div').eq(2).on('click',function(){
@@ -228,6 +262,8 @@
 						$('.best-tag span').eq(2).removeClass('off');
 						$('.best-tag span').eq(0).addClass('off');
 						$('.best-tag span').eq(1).addClass('off');
+						$(".best-title h2").html("이번 달 베스트셀러");
+						$(".best-title p").html("이번 달에 가장 많이 구매되고 있는 메뉴입니다");
 					})
 				});
 			</script>
@@ -260,7 +296,7 @@
 												onclick="javascript: location.href='/productView/productView?product_no=\${a.product_no}'">
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
-													<p>\${a.product_price}</p>
+													<p>\${a.product_price}원</p>
 													<p>\${a.product_replyCnt}개의 리뷰</p>
 												</div>
 										</div>
@@ -305,7 +341,7 @@
 												onclick="javascript: location.href='/productView/productView?product_no=\${a.product_no}'">
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
-													<p>\${a.product_price}</p>
+													<p>\${a.product_price}원</p>
 													<p>\${a.product_replyCnt}개의 리뷰</p>
 												</div>
 										</div>
@@ -350,7 +386,7 @@
 												onclick="javascript: location.href='/productView/productView?product_no=\${a.product_no}'">
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
-													<p>\${a.product_price}</p>
+													<p>\${a.product_price}원</p>
 													<p>\${a.product_replyCnt}개의 리뷰</p>
 												</div>
 										</div>
@@ -393,7 +429,7 @@
 												onclick="javascript: location.href='/productView/productView?product_no=\${a.product_no}'">
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
-													<p>\${a.product_price}</p>
+													<p>\${a.product_price}원</p>
 													<p>\${a.product_replyCnt}개의 리뷰</p>
 												</div>
 										</div>
@@ -437,7 +473,7 @@
 												onclick="javascript: location.href='/productView/productView?product_no=\${a.product_no}'">
 												<div class="rcc-content font-noto">
 													<h4>\${a.product_name}</h4>
-													<p>\${a.product_price}</p>
+													<p>\${a.product_price}원</p>
 													<p>\${a.product_replyCnt}개의 리뷰</p>
 												</div>
 										</div>
@@ -515,7 +551,6 @@
 		crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
 </body>
 
 </html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.zero.project.mapper.CartMapper"> 
+
+  <insert id="register">
+    <selectKey keyProperty="cart_no" order="BEFORE" resultType="int">
+  		select cart_seq.nextval from dual
+  	</selectKey>
+  	insert into cart(cart_no, product_no, member_no, product_quantity)
+  	values(#{cart_no}, #{product_no}, #{member_no}, #{product_quantity})
+   </insert>
+  
+  <select id="getCart" resultType="com.zero.project.model.CartVO">
+  	select * from cart
+	where member_no = #{member_no} and product_no = #{product_no}
+  </select>
+
+  <update id="modify">
+  	update cart
+	set product_quantity = product_quantity + #{product_quantity}
+	where product_no = #{product_no} and member_no = #{member_no}
+  </update>
+  
+  <update id="modifies">
+  	update cart
+  	set product_quantity = #{product_quantity}
+  	where cart_no = #{cart_no}
+  </update>
+  
+  <delete id="remove">
+  	delete from cart where cart_no=#{cart_no}
+  </delete>
+  
+  <select id="count" resultType="com.zero.project.model.CartVO">
+  	select count(*) as counts from cart where member_no = #{member_no}
+  </select>
+  
+  <select id="getList" resultType="com.zero.project.model.CartVO">
+  	select cart_no, member_no, p.product_no, product_quantity,
+        product_name, product_price, product_img1
+	from product p, cart c
+	where p.product_no=c.product_no and member_no = #{member_no}
+  </select>
+
+  <select id="getPurchase" resultType="com.zero.project.model.CartVO">
+  	select cart_no, member_no, p.product_no, product_quantity,
+        product_name, product_price, product_img1
+	from product p, cart c
+	where p.product_no=c.product_no and cart_no = #{cart_no}
+  </select>
+</mapper>

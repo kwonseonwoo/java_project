@@ -28,17 +28,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	select * from (select * from product order by product_price desc) where <![CDATA[ rownum < 9 ]]> 
   </select>
   
-<!--   <select id="today" resultType="com.zero.project.model.ProductVO">
-  	
+  <select id="today" resultType="com.zero.project.model.ProductVO">
+  	select product_no, sum(sumtotal) as sumtotals
+		from (select p.product_no, sum(d.product_quantity) as sumtotal
+				from product p, order_detail d, order_tb o
+				where p.product_no = d.product_no and d.order_no = o.order_no
+				group by p.product_no, o.order_date
+				having to_char(o.order_date, 'yyyymmdd') = to_char(sysdate,'yyyymmdd'))
+		group by product_no
+		order by sumtotals desc
   </select>
   
   <select id="week" resultType="com.zero.project.model.ProductVO">
-  	
+  	select product_no, sum(sumtotal) as sumtotals
+		from (select p.product_no, sum(d.product_quantity) as sumtotal
+				from product p, order_detail d, order_tb o
+				where p.product_no = d.product_no and d.order_no = o.order_no
+				group by p.product_no, o.order_date
+				having to_char(o.order_date, 'yyyymmdd') between to_char(trunc(sysdate,'IW'),'yyyymmdd') and to_char(trunc(sysdate+7,'IW'),'yyyymmdd'))
+		group by product_no
+		order by sumtotals desc
   </select>
   
   <select id="month" resultType="com.zero.project.model.ProductVO">
-  	
-  </select> -->
+  	select product_no, sum(sumtotal) as sumtotals
+		from (select p.product_no, sum(d.product_quantity) as sumtotal
+				from product p, order_detail d, order_tb o
+				where p.product_no = d.product_no and d.order_no = o.order_no
+				group by p.product_no, o.order_date
+				having to_char(o.order_date, 'yyyymmdd') between to_char(trunc(sysdate,'mm'),'yyyymmdd') and to_char(Last_day(sysdate),'yyyymmdd'))
+		group by product_no
+		order by sumtotals desc
+  </select> 
   
   <select id="news" resultType="com.zero.project.model.ProductVO">
   	select * from (select * from product order by product_regDate desc) where <![CDATA[ rownum < 9 ]]>

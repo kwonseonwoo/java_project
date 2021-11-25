@@ -19,8 +19,8 @@ public interface AdminProductService {
 	public boolean modify(ProductVO vo);
 	
 	public boolean remove(int product_no);
-	
-	public boolean saleCount_modify(ProductVO vo);
+
+	public boolean saleCount_modify(int product_no, int product_quantity);
 	
 	/* public boolean replyCnt_modify(ProductVO vo); */
 	

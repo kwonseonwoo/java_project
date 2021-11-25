@@ -77,6 +77,12 @@
 								<p>참고항목</p>
 							</div>
 							<div>
+								<p>이메일</p>
+							</div>
+							<div>
+								<p>전화번호</p>
+							</div>
+							<div>
 								<p>가입일자</p>
 							</div>
 						</div>
@@ -99,6 +105,12 @@
 								</div>
 								<div>
 									<p><input type="text" name="member_reference" value="${member.member_reference }"></p>
+								</div>
+								<div>
+									<p><input type="text" name="member_email" value="${member.member_email }"></p>
+								</div>
+								<div>
+									<p><input type="text" name="member_phone" value="${member.member_phone }"></p>
 								</div>
 								<div>
 									<p><input type="text" name="member_regDate" value='<fmt:formatDate pattern="yy/MM/dd" value="${member.member_regDate }" />' readonly="readonly"></p>

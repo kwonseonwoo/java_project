@@ -3,30 +3,23 @@ package com.zero.project.controller;
 import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.zero.project.config.auth.PrincipalDetail;
-import com.zero.project.mapper.AdminMemberMapper;
-import com.zero.project.mapper.MainMapper;
+import com.zero.project.model.CartVO;
 import com.zero.project.model.Criteria;
-import com.zero.project.model.Member;
 import com.zero.project.model.MemberVO;
-import com.zero.project.model.PageDTO;
 import com.zero.project.model.ProductVO;
 import com.zero.project.model.ReplyVO;
 import com.zero.project.service.AdminMemberService;
 import com.zero.project.service.AdminProductService;
+import com.zero.project.service.CartService;
 import com.zero.project.service.MainService;
 
 import lombok.AllArgsConstructor;
@@ -45,10 +38,31 @@ public class MainController {
 	@Setter(onMethod_= @Autowired)
 	private MainService service3;
 	
+	@Setter(onMethod_= @Autowired)
+	private CartService service4;
+	
+	
 	// 메인 페이지
 	@GetMapping("/main")
-	public void main() {
+	public String main(Principal principal, HttpSession session) {
 		
+		if(principal != null) {
+		MemberVO member = service2.getMember2(principal.getName());
+		CartVO vo = service4.count(member.getMember_no());
+		
+		System.out.println("카트 개수 출력: " + vo.getCounts());
+		
+		int no = 0;
+		if(vo.getCounts()==0) {
+			session.setAttribute("counts", no);
+		}else {
+			session.setAttribute("counts", vo.getCounts());
+		}
+		return "/main";
+	  } else {
+		  System.out.println("로그인 안된 상태로 메인 이동");
+		  return "/main";
+	  }
 	}
 
 	// 인기 상품 리스트 출력

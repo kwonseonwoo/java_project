@@ -22,7 +22,7 @@ public interface AdminProductMapper {
 	
 	public int getTotalCount(Criteria cri);
 	
-	public int saleCount_modify(ProductVO vo);
+	public int saleCount_modify(int product_no, int product_quantity);
 	
 	public void replyCnt_modify(int product_no);
 

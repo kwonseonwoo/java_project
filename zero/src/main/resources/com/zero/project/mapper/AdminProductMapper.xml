@@ -81,7 +81,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
   <update id="saleCount_modify">
   	update product
-  	set product_saleCount = product_saleCount + 1
+  	set product_saleCount = product_saleCount + #{product_quantity}
   	where product_no = #{product_no}
   </update>
   

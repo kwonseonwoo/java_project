@@ -570,8 +570,9 @@
 							<c:otherwise>
 								<ul class="nav-top-ul">
 									<li><a href="/member/updateForm">회원정보수정</a></li>
+									<li><a class="mypage" onclick="myPage_move('<c:out value="${principal.member.member_no}" />')">마이페이지</a></li>
 									<li><a href="/logout">로그아웃</a></li>
-									<li id="nav-cart"><a href="#n"><i class="fas fa-shopping-cart"></i> 장바구니</a><span class="cart-num">0</span></li>
+									<li id="nav-cart"><a href="/cart/cart"><i class="fas fa-shopping-cart"></i> 장바구니</a><span class="cart-num"><%=session.getAttribute("counts") %></span></li>
 								</ul>
 							</c:otherwise>
 						</c:choose>
@@ -604,7 +605,15 @@
 				$('.hover-menu').on('mouseleave',function(){
 					$('.toggle-ul').removeClass('toggle-ul-hover');
 				});
-			})
+				
+			});
+			
+			function myPage_move(data) {
+				
+				var member_no = Number(data);
+				
+				location.href="/myPage/myPage?member_no="+member_no;
+			}
 		</script>
 		<!-- header 끝 -->
 

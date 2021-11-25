@@ -50,8 +50,8 @@ public class AdminProductServiceImpl implements AdminProductService{
 	}
 
 	@Override
-	public boolean saleCount_modify(ProductVO vo) {
-		return mapper.saleCount_modify(vo) ==1;
+	public boolean saleCount_modify(int product_no, int product_quantity) {
+		return mapper.saleCount_modify(product_no, product_quantity) ==1;
 	}
 
 	/*

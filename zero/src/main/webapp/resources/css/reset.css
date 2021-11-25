@@ -291,3 +291,38 @@ img{-webkit-user-drag: none;}
 .bg-skyblue{
 	background-color: skyblue;
 }
+.bg-tr{
+	background: transparent;
+}
+
+.c-r{
+	color: red;
+	font-size: 12px;
+}
+
+.fw-200{
+	font-weight: 200;
+}
+
+pre {
+    height: auto;
+    max-height: 200px;
+    overflow: auto;
+    background-color: rgb(36, 36, 36);
+    word-break: normal !important;
+    word-wrap: normal !important;
+    white-space: pre !important;
+	padding: 0;
+	letter-spacing: 1px;
+	word-spacing: 2px;
+	line-height: 170%;
+	text-align: left;
+	
+}
+
+pre::placeholder{
+	color: rgb(216, 190, 157);
+}
+.mt20{
+	margin-top: 20px;
+}

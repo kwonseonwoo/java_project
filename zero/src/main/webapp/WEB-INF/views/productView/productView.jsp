@@ -373,6 +373,42 @@
                                             $('.menu-button-num').text(menuNum);
                                             $('.pvp-price-content').text(`\${total_price} 원`);
                                         });
+                                        
+                                        
+                                        var member_val = "<c:out value='${principal.member.member_no}' />";
+                            			var product_val = "<c:out value='${product.product_no}' />";
+                                        
+                                		<!-- 장바구니 등록을 위한 script -->
+                                		$(".pvp-cart").on("click", function(e){
+                                			
+                                			if(member_val == null || member_val == "") {
+                                				alert("로그인을 해주세요.");
+                                				return false;
+                                			}
+                                			
+                                			console.log("카트 멤버 번호: ", member_val);
+                                			console.log("카트 상품 번호: ", product_val);
+                                			console.log("카트 상품 수량: ", menuNum);
+                                			
+                                			var content = {member_no: member_val,
+                                						   product_no: product_val,
+                                						   product_quantity: menuNum};
+                                			
+                                			cartAdd.add(content, function(result){
+                                				alert(result);
+                                			});
+                                		});
+                                        
+                                		<!-- 바로 구매를 위한 script -->
+                                		$(".pvp-purchaseGo").on("click", function(){
+                                			
+                                			if(member_val == null || member_val == "") {
+                                				alert("로그인을 먼저 해주세요.");
+                                				return false;
+                                			} else {
+                                				location.href="/buy/directBuy?product_no="+product_val+"&quantity="+menuNum;
+                                			}
+                                		});
                                     });
                                 </script>
                             
@@ -570,6 +606,37 @@
 				});
 			});
 		});
+	</script>
+	
+	<script>
+		var cartAdd = (function(){
+			
+			function add(content, callback, error) {
+				console.log("cart ajax execute!!!");
+				
+				$.ajax({
+					type:'post',
+					url:'/cart/new',
+					data:JSON.stringify(content),
+					contentType:"application/json; charset=utf-8",
+					success:function(result, status, xhr) {
+						if(callback) {
+							callback(result);
+						}
+					},
+					error:function(xhr, status, er) {
+						if(error) {
+							error(er);
+						}
+					}
+				})
+			}
+			
+			/* and add function */
+			
+			
+			return {add:add}
+		})();
 	</script>
 </body>
 </html>
