@@ -1,6 +1,9 @@
 package com.zero.project.controller.api;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
+
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -54,15 +59,15 @@ public class MemberApiController {
 		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(member.getMember_id(), member.getMember_password()));
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
-		
 	}
-//	@PostMapping("/api/checkId")
-//	public int checkId(@RequestBody Member member) {
-//		System.out.println("전달받은 id: " + member.getMember_id());
-//		int cnt = memberService.checkId(member);
-//		System.out.println("확인 cnt : " + cnt);
-//		return cnt;
-//	}
-
-
+	
+	@PostMapping("/member/checkId")
+	public String checkId(@RequestBody Member member, Model model) {
+		String result = memberService.check(member);
+		System.out.println("result : " + result);
+		return memberService.check(member);
+	}
+	
+	
+	
 }

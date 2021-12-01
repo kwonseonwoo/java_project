@@ -114,7 +114,7 @@ body::-webkit-scrollbar{
 .bg-main{background-color:rgb(235, 217, 193);}
 .bg-main2{background-color:rgb(216, 190, 157);}
 body::-webkit-scrollbar-thumb {
-	background-color: rgb(85, 85, 85); /*½ºÅ©·Ñ¹ÙÀÇ »ö»ó*/
+	background-color: rgb(85, 85, 85); /*ìŠ¤í¬ë¡¤ë°”ì˜ ìƒ‰ìƒ*/
 	background-clip: padding-box;
 	border-radius: 50px;
 }

@@ -1,5 +1,6 @@
 package com.zero.project.repository;
 
+
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,9 +14,12 @@ public interface MemberRepository extends JpaRepository<Member, Integer> {
 //	Optional<Member> findByMember_id(String username);
 	
 	@Query(value = "select * from member where member_id = ?", nativeQuery = true)
-	Optional<Member> findByMember_id(String username);
+	Optional<Member> findByMember_id(String member_id);
 
-	
+	/*
+	 * @Query(value = "select * from member where member_id = ?", nativeQuery =
+	 * true) Optional<Member> findMember_id(String member_id);
+	 */
 }
 //@Query(value = "select * from Member where member_id = ? and member_password = ?", nativeQuery = true)
 //Member login(String member_id, String password);

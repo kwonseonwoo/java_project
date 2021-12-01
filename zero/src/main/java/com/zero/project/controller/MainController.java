@@ -43,14 +43,12 @@ public class MainController {
 	
 	
 	// 메인 페이지
-	@GetMapping("/main")
+	@GetMapping("/")
 	public String main(Principal principal, HttpSession session) {
 		
 		if(principal != null) {
 		MemberVO member = service2.getMember2(principal.getName());
 		CartVO vo = service4.count(member.getMember_no());
-		
-		System.out.println("카트 개수 출력: " + vo.getCounts());
 		
 		int no = 0;
 		if(vo.getCounts()==0) {

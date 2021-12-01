@@ -1,8 +1,8 @@
 
 server:
-  port: 8080
+  port: 8000
   servlet:
-    context-path: /
+    context-path: / #localhost:8000/가 들어감
     encoding:
       charset: UTF-8
       enabled: true
@@ -13,6 +13,9 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
+    hiddenmethod:
+      filter:
+        enabled: true 
   datasource:
     url: jdbc:oracle:thin:@localhost:1521:ORCL
     username: zero
@@ -32,11 +35,16 @@ spring:
     properties:
       hibernate.format_sql: true #콘솔창에 sql문 정렬되게 보여줌
     database: oracle
+
   jackson:
     serialization:
       fail-on-empty-beans: false
       
   servlet:
-   multipart:
-     max-file-size: 50MB
-     max-request-size: 50MB
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+        
+
+zero:
+  key: zero

@@ -159,7 +159,7 @@
                                     <p>● 12:00시(정오) 까지 주문 시 당일 발송, 이후 주문 시 다음날 발송되어 다다음날 도착합니다.</p> 
                                     <p>● 금요일 12:00시(정오) 부터 일요일까지의 주문은 월요일에 발송되어 화요일에 도착합니다.</p> 
                                     <p>● 일부 도서 산간 지역은 배송에 이틀 이상이 소요될 수 있습니다.</p> 
-                                    <img src="deliver.jpg" width="100%">
+                                    <img src="/resources/img/deliver.jpg" width="100%">
                                 </div>
                             </div>
                             <div class="pv-del-contents">

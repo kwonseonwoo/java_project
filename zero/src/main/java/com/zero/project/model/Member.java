@@ -25,39 +25,46 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
 @SequenceGenerator(name = "member_seq",
-				   sequenceName = "member_seq",
-				   initialValue = 1,
-				   allocationSize = 1
-				   )
+sequenceName = "member_seq",
+initialValue = 1,
+allocationSize = 1
+)
+@Entity
 public class Member {
 
 	@Id //primary key
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,
-							   generator = "member_seq") //DB의 넘버링 전략을 따름
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "member_seq")
 	private int member_no;
 	
-	@Column(nullable = false, length=50, unique = true)
+	@Column(nullable = false, length=100, unique = true)
 	private String member_id;
 	
-	@Column(nullable = false, length = 100)
+	@Column(nullable = false, length=100)
 	private String member_password;
 	
-	@Column(nullable = false, length = 20)
+	@Column(length = 20)
 	private String member_username;
 	
-	@Column(nullable = false, length = 100)
+	@Column(length = 50)
+	private String member_email;
+	
+	@Column(length = 50)
+	private String member_phone;
+	
+	@Column(length = 100)
 	private String member_address_no;
 	
-	@Column(nullable = false, length = 100)
+	@Column(length = 100)
 	private String member_address;
 	
-	@Column(nullable = false, length = 100)
+	@Column( length = 100)
 	private String member_address_detail;
 	
 	@Column(length=50)
 	private String member_reference;
+	
+	private String oauth; //kakao, google, facebook
 	
 	@Enumerated(EnumType.STRING)
 	private RoleType member_role; 

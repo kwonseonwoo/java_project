@@ -9,8 +9,6 @@ import org.springframework.context.annotation.Configuration;
 
 @SpringBootApplication
 @Configuration
-@ComponentScan
-@EnableAutoConfiguration
 @MapperScan(basePackages = {"com.zero.project.mapper"})
 public class ZeroApplication {
 

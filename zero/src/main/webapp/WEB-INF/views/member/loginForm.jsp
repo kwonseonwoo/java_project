@@ -1,3 +1,23 @@
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+
+<%@ include file="../headerFooter/header.jsp"%>
+ <div class="container">
+	<form action="/auth/loginProc" method="post">
+		<div class="form-group">
+			<label for="member_id">ID</label>
+			 <input type="text" name="username"class="form-control" placeholder="Enter ID" id="member_id">
+		</div>
+		<div class="form-group">
+			<label for="member_password">Password</label>
+			 <input type="password" name="password" class="form-control" placeholder="Enter password" id="member_password">
+		</div>
+		<button id="btn-login" class="btn btn-primary">로그인</button>
+		<a href="https://kauth.kakao.com/oauth/authorize?client_id=358da5924ee8d4bce751e3d8e37422aa&redirect_uri=http://localhost:8000/auth/kakao/callback&response_type=code"><img src="/image/kakao_login_button.png"></a>
+	</form>
+</div>
+
+<%@ include file="../headerFooter/footer.jsp"%> --%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -24,19 +44,6 @@
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 	crossorigin="anonymous"></script>
 </head>
-<!-- <div class="container">
-	<form action="/auth/loginProc" method="post">
-		<div class="form-group">
-			<label for="member_id">ID</label>
-			 <input type="text" name="username"class="form-control" placeholder="Enter ID" id="member_id">
-		</div>
-		<div class="form-group">
-			<label for="member_password">Password</label>
-			 <input type="password" name="password" class="form-control" placeholder="Enter password" id="member_password">
-		</div>
-		<button id="btn-login" class="btn btn-primary">로그인</button>
-	</form>
-</div> -->
 <body>
 	<div class="wrap" id="wrap">
 	<%@ include file="/WEB-INF/views/headerFooter/header.jsp"%>
@@ -70,7 +77,7 @@
                             <div class="login-button-box">
                                 <button class="login-sub-button max-button bg-blue"><a href="https://www.facebook.com/login.php?skip_api_login=1&api_key=986571901368829&kid_directed_site=0&app_id=986571901368829&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv2.8%2Fdialog%2Foauth%3Fclient_id%3D986571901368829%26redirect_uri%3Dhttps%253A%252F%252Fmeesig.com%252Fsocial%252Fcallback%252Ffacebook%26state%3D125%26cartCount%3D0%26welcomePoint%3D300%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D6646564b-efa9-4b04-a944-7bb8eccb87a3%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fmeesig.com%2Fsocial%2Fcallback%2Ffacebook%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3D125%23_%3D_&display=page&locale=ko_KR&pl_dbl=0">페이스북 계정으로 로그인하기</a></button>
                                 <button class="login-sub-button max-button bg-green"><a href="https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=wZX7RDtDO372wI67aEUc&redirect_uri=https%3A%2F%2Fmeesig.com%2Fsocial%2Fcallback%2Fnaver%3F&state=102&cartCount=0&welcomePoint=300">네이버 계정으로 로그인하기</a></button>
-                                <button class="login-sub-button max-button bg-yellow"><a class="c-bk" href="https://accounts.kakao.com/login?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3FwelcomePoint%3D300%26encode_state%3D1159%26response_type%3Dcode%26cartCount%3D0%26redirect_uri%3Dhttps%253A%252F%252Fmeesig.com%252Fsocial%252Fcallback%252Fkakao%26client_id%3D3031a6b98fb1286ee31f0b5e9e674dfb%26state%3D159">카카오 계정으로 로그인하기</a></button>
+                                <button class="login-sub-button max-button bg-yellow"><a class="c-bk" href="https://kauth.kakao.com/oauth/authorize?client_id=358da5924ee8d4bce751e3d8e37422aa&redirect_uri=http://localhost:8000/auth/kakao/callback&response_type=code">카카오 계정으로 로그인하기</a></button>
                             </div>
                             <div class="login-sub-contents main-color">
                                 <div class="go-signup">
@@ -103,4 +110,6 @@
 
 </body>
 </html>
+
+
 

@@ -278,17 +278,19 @@ public class MainJsonController {
 		
 		
 		if(list != null && !list.isEmpty()) {
-			for(int i=0; i<9; i++) {
+			for(int i=0; i<list.size(); i++) {
+				
 				
 				if(list.get(i) != null) {
 					
 					int product_no = list.get(i).getProduct_no();
 					
 					ProductVO vo = productService.getProduct(product_no);
-					
+										
 					trans_data.add(vo);
 					
-				}
+				} 
+
 			}
 			
 			String json = gson.toJson(trans_data);
@@ -317,17 +319,19 @@ public class MainJsonController {
 		
 		
 		if(list != null && !list.isEmpty()) {
-			for(int i=0; i<9; i++) {
+			for(int i=0; i<list.size(); i++) {
+				
 				
 				if(list.get(i) != null) {
 					
 					int product_no = list.get(i).getProduct_no();
 					
 					ProductVO vo = productService.getProduct(product_no);
-					
+										
 					trans_data.add(vo);
 					
-				}
+				} 
+
 			}
 			
 			String json = gson.toJson(trans_data);

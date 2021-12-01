@@ -3,7 +3,7 @@ let index = {
 		$("#btn-save").on("click", () => {
 			this.save();
 		});
-		$("#btn-checkId").on("click",() => {
+		$("#btn-checkId").on("click", () => {
 			this.checkId();
 		});
 		$("#btn-update").on("click", () => {
@@ -19,6 +19,8 @@ let index = {
 			member_address: $("#member_address").val(),
 			member_address_no: $("#member_address_no").val(),
 			member_address_detail: $("#member_address_detail").val(),
+			member_email: $("#member_email").val(),
+			member_phone: $("#member_phone").val(),
 			member_reference: $("#member_reference").val()
 		};
 		$.ajax({
@@ -28,12 +30,12 @@ let index = {
 			contentType: "application/json; charset=utf-8"
 		}).done(function(resp) {
 			alert("회원가입 완료.");
-			location.href = "/main";
+			location.href = "/";
 		}).fail(function(error) {
 			alert(JSON.stringify(error));
 		});
 	},
-	
+
 	update: function() {
 		let data = {
 			member_no: $("#member_no").val(),
@@ -43,6 +45,8 @@ let index = {
 			member_address: $("#member_address").val(),
 			member_address_no: $("#member_address_no").val(),
 			member_address_detail: $("#member_address_detail").val(),
+			member_email: $("#member_email").val(),
+			member_phone: $("#member_phone").val(),
 			member_reference: $("#member_reference").val()
 		};
 		$.ajax({
@@ -52,35 +56,35 @@ let index = {
 			contentType: "application/json; charset=utf-8"
 		}).done(function(resp) {
 			alert("회원수정 완료.");
-			location.href = "/main";
+			location.href = "/";
 		}).fail(function(error) {
 			alert(JSON.stringify(error));
 		});
 	},
-	
-	
-	/*checkId: function() {
+
+
+	checkId: function() {
 		let data = {
-			member_id: $("#member_id").val()
+			member_id: $("#member_id").val(),
 		};
+
+		console.log(data.member_id);
 		$.ajax({
-			type: "POST",
-			url: "/api/checkId",
+			type:'POST',
+			url:"/member/checkId",
 			data: JSON.stringify(data),
 			contentType: "application/json; charset=utf-8",
-			success:function() {
-				if(cnt != 1) {
-					alert("사용 가능한 아이디")
-				} else {
-					alert("중복 사용 아이디")
-				}
-			},
-			error:function() {
-				alert("에러");
+		}).done(function(result) {
+			if(result == "success") {
+				alert('사용할 수 있는 아이디입니다.')
+			} else {
+				alert('사용할 수 없는 아이디입니다.')
 			}
+		}).fail(function(error) {
+			alert(JSON.stringify(error));
 		});
-	}*/
-	
-	
+	}
+
+
 }
 index.init();

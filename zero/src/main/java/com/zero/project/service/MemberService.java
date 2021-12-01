@@ -1,6 +1,10 @@
 package com.zero.project.service;
 
 
+
+
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -32,6 +36,7 @@ public class MemberService {
 		String rawPassword = member.getMember_password();
 		String encPassword = encoder.encode(rawPassword);  //해쉬화
 		member.setMember_password(encPassword);
+		System.out.println(member.toString());
 		memberRepository.save(member);
 	}
 
@@ -44,16 +49,50 @@ public class MemberService {
 		Member persistance = memberRepository.findById(member.getMember_no()).orElseThrow(()-> {
 			return new IllegalArgumentException("회원 찾기 실패");
 		});
-		String rawPassword = member.getMember_password();
-		String encPassword = encoder.encode(rawPassword);
-		persistance.setMember_password(encPassword);
+		if(persistance.getOauth() == null || persistance.getOauth().equals("")) {
+			String rawPassword = member.getMember_password();
+			String encPassword = encoder.encode(rawPassword);
+			persistance.setMember_password(encPassword);
+		}
 		persistance.setMember_username(member.getMember_username());
 		persistance.setMember_address(member.getMember_address());
 		persistance.setMember_address_no(member.getMember_address_no());
 		persistance.setMember_address_detail(member.getMember_address_detail());
+		persistance.setMember_reference(member.getMember_reference());
+		persistance.setMember_email(member.getMember_email());
 		// 함수 종료시 = 서비스 종료 = 트랜잭션 종료 = commit이 자동으로 됨
 		// 영속화된 persistance 객체의 변화가 감지되면 더티체킹이 되어 update문을 날려줌.
 	}
+
+	@Transactional(readOnly = true)
+	public Member findMember(String member_id) {
+		Member member = memberRepository.findByMember_id(member_id).orElseGet(()->{
+			return new Member();
+		});
+		return member;
+		
+	}
+
+	public String check(Member member) {
+		int result;
+		String Old = member.getMember_id();
+		Optional<Member> asd = memberRepository.findByMember_id(Old);
+		System.out.println(asd);
+		if (asd.equals(Optional.empty())) {
+			 result = 1; //정보 없음, 회원가입 가능
+			 return "success";
+		}else {
+			result = 0; //정보 있음, 회원가입 불가
+			return "fail";
+		}
+	}
+
+
+
+
+
+
+
 
 //	public int checkId(Member member) {
 //		int cnt = memberRepository.checkId(member.getMember_id());

@@ -528,7 +528,7 @@
 						<c:choose>
 							<c:when test="${empty principal }">
 								<ul class="nav-top-ul">
-									<li><a href="#n">고객센터</a></li>
+									<li><a href="/board/list">고객센터</a></li>
 									<li><a href="/auth/loginForm">로그인</a></li>
 									<li><a href="/auth/joinForm">회원가입</a></li>
 								</ul>
@@ -543,7 +543,7 @@
 								<ul class="nav-top-ul">
 									<li><a href="/member/updateForm">회원정보수정</a></li>
 									<li><a href="/logout">로그아웃</a></li>
-									<li id="nav-cart"><a href="#n"><i class="fas fa-shopping-cart"></i> 장바구니</a><span class="cart-num">0</span></li>
+									<li id="nav-cart"><a href="/cart/cart"><i class="fas fa-shopping-cart"></i> 장바구니</a><span class="cart-num"><%=session.getAttribute("counts") %></span></li>
 								</ul>
 							</c:otherwise>
 						</c:choose>

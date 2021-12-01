@@ -48,7 +48,9 @@ span{
     display: inline;
 }
 
-
+.test{
+    border: 1px solid red;
+}
 
 
 .bg-c{
@@ -72,7 +74,7 @@ a:hover{
     color: rgb(235, 217, 193);
 }
 
-/* ���� ĳ���� */
+/* 메인 캐러셀 */
 
 .main-carousel{
     padding: 0;
@@ -155,7 +157,7 @@ a:hover{
     font-weight: lighter;
 }
 
-/* ���� ĳ���� �� */
+/* 메인 캐러셀 끝 */
 
 /* --------------------------------------- */
 
@@ -169,7 +171,7 @@ a:hover{
     right: -100px;
 }
 
-/* �޴� ��õ ĳ���� */
+/* 메뉴 추천 캐러셀 */
 .carousel-title{
     display: flex;
     align-items: center;
@@ -237,7 +239,6 @@ a:hover{
     width: 90%;
     background-size:auto 100%; 
     background-position:center;
-    cursor:pointer;
 }
 
 .rec-carousel-content:hover{
@@ -263,11 +264,11 @@ a:hover{
     height: 100%;
 }
 
-/* �޴� ��õ ĳ���� �� */
+/* 메뉴 추천 캐러셀 끝 */
 
 /* ------------------------------------------- */
 
-/* ����Ʈ���� */
+/* 베스트셀러 */
 
 .best-title{
     position: relative;
@@ -352,11 +353,11 @@ a:hover{
 .best-off{
     display: none;
 }
-/* ����Ʈ���� �� */
+/* 베스트셀러 끝 */
 
 /* -------------------------------------- */
 
-/* �α��� */
+/* 로그인 */
 
 .login{
     padding: 50px 0;
@@ -452,7 +453,7 @@ a:hover{
 .login-sub-contents div p a{
     text-decoration: underline;
 }
-/* �α��� �� */
+/* 로그인 끝 */
 
 /* -------------------------------------------------- */
 
@@ -637,7 +638,7 @@ a:hover{
     align-items: center;
 }
 
-/* admin �� */
+/* admin 끝 */
 
 /* -------------------------------------- */
 
@@ -733,7 +734,7 @@ a:hover{
 }
 
 
-/* products List �� */
+/* products List 끝 */
 
 /* products view */
 /* products view left */
@@ -1015,7 +1016,7 @@ a:hover{
 .pv-promise div p{
     line-height: 160%;
 }
-/* products view left �� - ���� �� ���� */
+/* products view left 끝 - 아직 덜 끝남 */
 
 /* products view right  */
 .products-view-purchase{
@@ -1465,7 +1466,7 @@ a:hover{
     cursor: pointer;
     color: white;
 }
-/* cart�� */
+/* cart끝 */
 
 /* ------------------------------- */
 
@@ -1836,9 +1837,9 @@ a:hover{
     color: white;
     font-size: 20px;
 }
-/* buy�� */
+/* buy끝 */
 
-/* ���ֺκ� */
+/* 용주부분 */
 /* board */
 
 .board{
@@ -1971,7 +1972,7 @@ a:hover{
 .reply-delete:active{
     background-color: rgb(194, 0, 0);
 }
-/* board-detail �� */
+/* board-detail 끝 */
 
 /* board-List */
 .boardList{
@@ -2285,7 +2286,7 @@ a:hover{
 }
 
 .myPage-title input{
-    width: 86%;
+    width: 100%;
     padding: 10px 20px;
     border: 1px solid rgb(78, 78, 78);
     border-radius: 3px;
@@ -2407,4 +2408,62 @@ a:hover{
 
 .mcm-cart-button:active{
     background-color: rgb(78, 78, 78);
+}
+
+/* join */
+.join{
+    padding: 50px;
+}
+
+.join-box{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.join-title{
+    text-align: center;
+    margin: 15px 0;
+}
+
+.form-group{
+    margin: 30px 0;
+}
+
+.fg-address-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fg-address-div div{
+    margin-bottom: 10px;
+}
+
+.form-group label{
+    margin-bottom: 10px;
+}
+
+.fg-address-info{
+    margin-bottom: 10px;
+}
+
+.fg-address{
+    border: 1px solid rgb(190, 190, 190);
+    padding: 5px 20px;
+    border-radius: 4px;
+    color: rgb(190, 190, 190);
+}
+
+.fg-address:active{
+    background-color: rgb(190, 190, 190);
+    color: black;
+
+}
+
+.join-button{
+    width: 100%;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
 }
